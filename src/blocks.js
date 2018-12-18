@@ -9,6 +9,8 @@
  * Webpack is compiling as the input file.
  */
 
+//const THEME_NAME = 'cocoon';
 // import './block/block.js';
 // import './edit-block/block.js';
+//import './define.js';
 import './info-block/block.js';
