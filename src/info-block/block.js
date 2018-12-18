@@ -7,7 +7,7 @@ registerBlockType( 'cocoon-blocks/info', {
 
   icon: 'info',
 
-  category: 'common',
+  category: 'cocoon',
 
   attributes: {
     style: {

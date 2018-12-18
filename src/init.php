@@ -62,3 +62,20 @@ function cocoon_blocks_cgb_editor_assets() { // phpcs:ignore
 
 // Hook: Editor assets.
 add_action( 'enqueue_block_editor_assets', 'cocoon_blocks_cgb_editor_assets' );
+
+//Cocoonカテゴリーを追加
+add_filter( 'block_categories', 'add_theme_block_categories', 10, 2 );
+if ( !function_exists( 'add_theme_block_categories' ) ):
+function add_theme_block_categories( $categories, $post ){
+	return array_merge(
+		$categories,
+		array(
+			array(
+				'slug' => THEME_NAME,
+        'title' => __( 'Cocoon', THEME_NAME ),
+        //'icon' => 'heart',
+			),
+		)
+	);
+}
+endif;
