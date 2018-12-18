@@ -9,6 +9,6 @@
  * Webpack is compiling as the input file.
  */
 
-import './block/block.js';
-import './edit-block/block.js';
+// import './block/block.js';
+// import './edit-block/block.js';
 import './info-block/block.js';
