@@ -19,3 +19,11 @@
 //import './info-block/block.js';
 import './icon-box/block.js';
 import './info-box/block.js';
+import './blank-box/block.js';
+
+
+
+
+
+
+
