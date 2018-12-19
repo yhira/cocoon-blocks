@@ -13,4 +13,8 @@
 // import './block/block.js';
 // import './edit-block/block.js';
 //import './define.js';
-import './info-block/block.js';
+// import './hello-world-step-03/block.js';
+// import './hello-world-step-04/block.js';
+// import './latest-post/block.js';
+//import './info-block/block.js';
+import './info-block2/block.js';
