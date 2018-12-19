@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: Cocoon-blocks
- * Plugin URI: https://github.com/ahmadawais/create-guten-block/
- * Description: Cocoon-blocks — is a Gutenberg plugin created via create-guten-block.
+ * Plugin Name: Cocoon Blocks
+ * Plugin URI: https://wp-cocoon.com/cocoon-blocks/
+ * Description: Cocoon Blocks — is a Gutenberg plugin created via create-guten-block.
  * Author: わいひら
  * Author URI: https://nelog.jp/
- * Version: 1.0.0
+ * Version: 0.0.1
  * License: GPL2+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
  *

@@ -5,10 +5,10 @@ const { PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const THEME_NAME = 'cocoon';
 
-registerBlockType( 'cocoon-blocks/info-box', {
+registerBlockType( 'cocoon-blocks/icon-box', {
 
-  title: __( 'ボックス（案内）', THEME_NAME ),
-  icon: 'info',
+  title: __( 'ボックス（アイコン）', THEME_NAME ),
+  icon: 'art',
   category: 'cocoon',
 
   attributes: {
@@ -19,7 +19,7 @@ registerBlockType( 'cocoon-blocks/info-box', {
     },
     style: {
       type: 'string',
-      default: 'primary-box block-box',
+      default: 'information-box common-icon-box block-box'
     },
   },
 
@@ -45,32 +45,44 @@ registerBlockType( 'cocoon-blocks/info-box', {
               onChange={ ( value ) => setAttributes( { style: value } ) }
               options={ [
                 {
-                  value: 'primary-box block-box',
-                  label: __( 'プライマリー（濃い水色）', THEME_NAME ),
+                  value: 'information-box common-icon-box block-box',
+                  label: __( '補足情報(i)', THEME_NAME ),
                 },
                 {
-                  value: 'secondary-box block-box',
-                  label: __( 'セカンダリー（濃い灰色）', THEME_NAME ),
+                  value: 'question-box common-icon-box block-box',
+                  label: __( '補足情報(?)', THEME_NAME ),
                 },
                 {
-                  value: 'info-box block-box',
-                  label: __( 'インフォ（薄い青）', THEME_NAME ),
+                  value: 'alert-box common-icon-box block-box',
+                  label: __( '補足情報(!)', THEME_NAME ),
                 },
                 {
-                  value: 'warning-box block-box',
-                  label: __( 'ワーニング（薄い黄色）', THEME_NAME ),
+                  value: 'memo-box common-icon-box block-box',
+                  label: __( 'メモ', THEME_NAME ),
                 },
                 {
-                  value: 'danger-box block-box',
-                  label: __( 'デンジャー（薄い赤色）', THEME_NAME ),
+                  value: 'comment-box common-icon-box block-box',
+                  label: __( 'コメント', THEME_NAME ),
                 },
                 {
-                  value: 'light-box block-box',
-                  label: __( 'ライト（白色）', THEME_NAME ),
+                  value: 'ok-box common-icon-box block-box',
+                  label: __( 'OK', THEME_NAME ),
                 },
                 {
-                  value: 'dark-box block-box',
-                  label: __( 'ダーク（暗い灰色）', THEME_NAME ),
+                  value: 'ng-box common-icon-box block-box',
+                  label: __( 'NG', THEME_NAME ),
+                },
+                {
+                  value: 'good-box common-icon-box block-box',
+                  label: __( 'GOOD', THEME_NAME ),
+                },
+                {
+                  value: 'bad-box common-icon-box block-box',
+                  label: __( 'BAD', THEME_NAME ),
+                },
+                {
+                  value: 'profile-box common-icon-box block-box',
+                  label: __( 'プロフィール', THEME_NAME ),
                 },
               ] }
             />

@@ -17,4 +17,5 @@
 // import './hello-world-step-04/block.js';
 // import './latest-post/block.js';
 //import './info-block/block.js';
+import './icon-box/block.js';
 import './info-box/block.js';
