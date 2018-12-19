@@ -1,11 +1,11 @@
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls, BlockControls, AlignmentToolbar } = wp.editor;
+const { RichText, InspectorControls } = wp.editor;
 const { PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const THEME_NAME = 'cocoon';
 
-registerBlockType( 'cocoon-blocks/info2', {
+registerBlockType( 'cocoon-blocks/info-box', {
 
   title: __( 'ボックス（案内）', THEME_NAME ),
   icon: 'info',
@@ -21,9 +21,6 @@ registerBlockType( 'cocoon-blocks/info2', {
       type: 'string',
       default: 'primary-box'
     },
-    alignment: {
-      type: 'string',
-    },
   },
 
   edit( { attributes, setAttributes } ) {
@@ -35,10 +32,6 @@ registerBlockType( 'cocoon-blocks/info2', {
 
     function onChangeContent(newContent){
       setAttributes( { content: newContent } );
-    }
-
-    function onChangeAlignment( newAlignment ) {
-        setAttributes( { alignment: newAlignment } );
     }
 
     return (
@@ -85,18 +78,10 @@ registerBlockType( 'cocoon-blocks/info2', {
           </PanelBody>
         </InspectorControls>
 
-        <BlockControls>
-            <AlignmentToolbar
-                value={ alignment }
-                onChange={ onChangeAlignment }
-            />
-        </BlockControls>
-
         <div className={attributes.style}>
           <RichText
             onChange={ onChangeContent }
             value={ attributes.content }
-            style={ { textAlign: alignment } }
             multiline="p"
           />
         </div>
@@ -105,11 +90,10 @@ registerBlockType( 'cocoon-blocks/info2', {
   },
 
   save( { attributes } ) {
-    const { content, alignment } = attributes;
+    const { content } = attributes;
     return (
       <div className={attributes.style}>
           <RichText.Content
-            style={ { textAlign: alignment } }
             value={ attributes.content }
             multiline="p"
           />
