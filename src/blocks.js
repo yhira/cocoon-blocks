@@ -21,6 +21,7 @@ import './icon-box/block.js';
 import './info-box/block.js';
 import './blank-box/block.js';
 import './sticky-box/block.js';
+import './tab-box/block.js';
 
 
 
