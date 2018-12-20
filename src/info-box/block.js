@@ -4,6 +4,7 @@ const { RichText, InspectorControls } = wp.editor;
 const { PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const THEME_NAME = 'cocoon';
+const BLOCK_BOX = ' block-box';
 
 registerBlockType( 'cocoon-blocks/info-box', {
 
@@ -19,7 +20,7 @@ registerBlockType( 'cocoon-blocks/info-box', {
     },
     style: {
       type: 'string',
-      default: 'primary-box block-box',
+      default: 'primary-box',
     },
   },
 
@@ -45,31 +46,31 @@ registerBlockType( 'cocoon-blocks/info-box', {
               onChange={ ( value ) => setAttributes( { style: value } ) }
               options={ [
                 {
-                  value: 'primary-box block-box',
+                  value: 'primary-box',
                   label: __( 'プライマリー（濃い水色）', THEME_NAME ),
                 },
                 {
-                  value: 'secondary-box block-box',
+                  value: 'secondary-box',
                   label: __( 'セカンダリー（濃い灰色）', THEME_NAME ),
                 },
                 {
-                  value: 'info-box block-box',
+                  value: 'info-box',
                   label: __( 'インフォ（薄い青）', THEME_NAME ),
                 },
                 {
-                  value: 'warning-box block-box',
+                  value: 'warning-box',
                   label: __( 'ワーニング（薄い黄色）', THEME_NAME ),
                 },
                 {
-                  value: 'danger-box block-box',
+                  value: 'danger-box',
                   label: __( 'デンジャー（薄い赤色）', THEME_NAME ),
                 },
                 {
-                  value: 'light-box block-box',
+                  value: 'light-box',
                   label: __( 'ライト（白色）', THEME_NAME ),
                 },
                 {
-                  value: 'dark-box block-box',
+                  value: 'dark-box',
                   label: __( 'ダーク（暗い灰色）', THEME_NAME ),
                 },
               ] }
@@ -78,7 +79,7 @@ registerBlockType( 'cocoon-blocks/info-box', {
           </PanelBody>
         </InspectorControls>
 
-        <div className={attributes.style}>
+        <div className={attributes.style + BLOCK_BOX}>
           <RichText
             onChange={ onChangeContent }
             value={ attributes.content }
@@ -92,7 +93,7 @@ registerBlockType( 'cocoon-blocks/info-box', {
   save( { attributes } ) {
     const { content } = attributes;
     return (
-      <div className={attributes.style}>
+      <div className={attributes.style + BLOCK_BOX}>
           <RichText.Content
             value={ attributes.content }
             multiline="p"

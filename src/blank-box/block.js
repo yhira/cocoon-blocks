@@ -4,6 +4,7 @@ const { RichText, InspectorControls } = wp.editor;
 const { PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const THEME_NAME = 'cocoon';
+const BLOCK_BOX = ' block-box';
 
 registerBlockType( 'cocoon-blocks/blank-box', {
 
@@ -19,7 +20,7 @@ registerBlockType( 'cocoon-blocks/blank-box', {
     },
     style: {
       type: 'string',
-      default: 'blank-box block-box',
+      default: 'blank-box',
     },
   },
 
@@ -45,23 +46,23 @@ registerBlockType( 'cocoon-blocks/blank-box', {
               onChange={ ( value ) => setAttributes( { style: value } ) }
               options={ [
                 {
-                  value: 'blank-box block-box',
+                  value: 'blank-box',
                   label: __( '灰色', THEME_NAME ),
                 },
                 {
-                  value: 'blank-box bb-yellow block-box',
+                  value: 'blank-box bb-yellow',
                   label: __( '黄色', THEME_NAME ),
                 },
                 {
-                  value: 'blank-box bb-red block-box',
+                  value: 'blank-box bb-red',
                   label: __( '赤色', THEME_NAME ),
                 },
                 {
-                  value: 'blank-box bb-blue block-box',
+                  value: 'blank-box bb-blue',
                   label: __( '青色', THEME_NAME ),
                 },
                 {
-                  value: 'blank-box bb-green block-box',
+                  value: 'blank-box bb-green',
                   label: __( '緑色）', THEME_NAME ),
                 },
               ] }
@@ -70,7 +71,7 @@ registerBlockType( 'cocoon-blocks/blank-box', {
           </PanelBody>
         </InspectorControls>
 
-        <div className={attributes.style}>
+        <div className={attributes.style + BLOCK_BOX}>
           <RichText
             onChange={ onChangeContent }
             value={ attributes.content }
@@ -84,7 +85,7 @@ registerBlockType( 'cocoon-blocks/blank-box', {
   save( { attributes } ) {
     const { content } = attributes;
     return (
-      <div className={attributes.style}>
+      <div className={attributes.style + BLOCK_BOX}>
           <RichText.Content
             value={ attributes.content }
             multiline="p"

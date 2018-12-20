@@ -4,6 +4,7 @@ const { RichText, InspectorControls } = wp.editor;
 const { PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const THEME_NAME = 'cocoon';
+const BLOCK_BOX = ' block-box';
 
 registerBlockType( 'cocoon-blocks/icon-box', {
 
@@ -19,7 +20,7 @@ registerBlockType( 'cocoon-blocks/icon-box', {
     },
     style: {
       type: 'string',
-      default: 'information-box common-icon-box block-box'
+      default: 'information-box common-icon-box'
     },
   },
 
@@ -45,43 +46,43 @@ registerBlockType( 'cocoon-blocks/icon-box', {
               onChange={ ( value ) => setAttributes( { style: value } ) }
               options={ [
                 {
-                  value: 'information-box common-icon-box block-box',
+                  value: 'information-box common-icon-box',
                   label: __( '補足情報(i)', THEME_NAME ),
                 },
                 {
-                  value: 'question-box common-icon-box block-box',
+                  value: 'question-box common-icon-box',
                   label: __( '補足情報(?)', THEME_NAME ),
                 },
                 {
-                  value: 'alert-box common-icon-box block-box',
+                  value: 'alert-box common-icon-box',
                   label: __( '補足情報(!)', THEME_NAME ),
                 },
                 {
-                  value: 'memo-box common-icon-box block-box',
+                  value: 'memo-box common-icon-box',
                   label: __( 'メモ', THEME_NAME ),
                 },
                 {
-                  value: 'comment-box common-icon-box block-box',
+                  value: 'comment-box common-icon-box',
                   label: __( 'コメント', THEME_NAME ),
                 },
                 {
-                  value: 'ok-box common-icon-box block-box',
+                  value: 'ok-box common-icon-box',
                   label: __( 'OK', THEME_NAME ),
                 },
                 {
-                  value: 'ng-box common-icon-box block-box',
+                  value: 'ng-box common-icon-box',
                   label: __( 'NG', THEME_NAME ),
                 },
                 {
-                  value: 'good-box common-icon-box block-box',
+                  value: 'good-box common-icon-box',
                   label: __( 'GOOD', THEME_NAME ),
                 },
                 {
-                  value: 'bad-box common-icon-box block-box',
+                  value: 'bad-box common-icon-box',
                   label: __( 'BAD', THEME_NAME ),
                 },
                 {
-                  value: 'profile-box common-icon-box block-box',
+                  value: 'profile-box common-icon-box',
                   label: __( 'プロフィール', THEME_NAME ),
                 },
               ] }
@@ -90,7 +91,7 @@ registerBlockType( 'cocoon-blocks/icon-box', {
           </PanelBody>
         </InspectorControls>
 
-        <div className={attributes.style}>
+        <div className={attributes.style + BLOCK_BOX}>
           <RichText
             onChange={ onChangeContent }
             value={ attributes.content }
@@ -104,7 +105,7 @@ registerBlockType( 'cocoon-blocks/icon-box', {
   save( { attributes } ) {
     const { content } = attributes;
     return (
-      <div className={attributes.style}>
+      <div className={attributes.style + BLOCK_BOX}>
           <RichText.Content
             value={ attributes.content }
             multiline="p"
