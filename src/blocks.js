@@ -23,6 +23,7 @@ import './blank-box/block.js';
 import './sticky-box/block.js';
 import './tab-box/block.js';
 import './blogcard/block.js';
+import './button/block.js';
 
 
 
