@@ -1,21 +1,28 @@
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls } = wp.editor;
-const { PanelBody, SelectControl, BaseControl } = wp.components;
+const { PanelBody, SelectControl, BaseControl, TextControl } = wp.components;
 const { Fragment } = wp.element;
 const THEME_NAME = 'cocoon';
 const BUTTON_BLOCK = ' button-block';
 
 registerBlockType( 'cocoon-blocks/button', {
 
-  title: __( 'ボタン（Cocoon）', THEME_NAME ),
+  title: __( 'ボタン', THEME_NAME ),
   category: 'cocoon',
 
   attributes: {
     content: {
       type: 'string',
-      source: 'html',
-      selector: 'div',
+      default: __( 'ボタン', THEME_NAME ),
+    },
+    url: {
+      type: 'string',
+      default: '',
+    },
+    target: {
+      type: 'string',
+      default: '_self',
     },
     color: {
       type: 'string',
@@ -23,25 +30,50 @@ registerBlockType( 'cocoon-blocks/button', {
     },
     size: {
       type: 'string',
-      default: ' btn-l',
+      default: '',
     },
+  },
+  supports: {
+    align: [ 'left', 'center', 'right' ],
   },
 
   edit( { attributes, setAttributes } ) {
-    const { content, color, alignment } = attributes;
+    const { content, color, size, url, target } = attributes;
 
-    function onChange(event){
-      setAttributes({color: event.target.value});
-    }
+    // function onChange(event){
+    //   setAttributes({color: event.target.value});
+    // }
 
-    function onChangeContent(newContent){
-      setAttributes( { content: newContent } );
-    }
+    // function onChangeContent(newContent){
+    //   setAttributes( { content: newContent } );
+    // }
 
     return (
       <Fragment>
         <InspectorControls>
           <PanelBody title={ __( 'ボタン設定', THEME_NAME ) }>
+
+            <TextControl
+              label={ __( 'URL', THEME_NAME ) }
+              value={ url }
+              onChange={ ( value ) => setAttributes( { url: value } ) }
+            />
+
+            <SelectControl
+              label={ __( 'Target', 'snow-monkey-blocks' ) }
+              value={ target }
+              onChange={ ( value ) => setAttributes( { target: value } ) }
+              options={ [
+                {
+                  value: '_self',
+                  label: __( '現在のタブで開く', THEME_NAME ),
+                },
+                {
+                  value: '_blank',
+                  label: __( '新しいタブで開く', THEME_NAME ),
+                },
+              ] }
+            />
 
             <SelectControl
               label={ __( '色', THEME_NAME ) }
@@ -125,20 +157,20 @@ registerBlockType( 'cocoon-blocks/button', {
 
             <SelectControl
               label={ __( 'サイズ', THEME_NAME ) }
-              value={ color }
+              value={ size }
               onChange={ ( value ) => setAttributes( { size: value } ) }
               options={ [
                 {
-                  value: ' btn-l',
-                  label: __( '大', THEME_NAME ),
+                  value: '',
+                  label: __( '小', THEME_NAME ),
                 },
                 {
                   value: ' btn-m',
                   label: __( '中', THEME_NAME ),
                 },
                 {
-                  value: '',
-                  label: __( '小', THEME_NAME ),
+                  value: ' btn-l',
+                  label: __( '大', THEME_NAME ),
                 },
               ] }
             />
@@ -146,25 +178,34 @@ registerBlockType( 'cocoon-blocks/button', {
           </PanelBody>
         </InspectorControls>
 
-        <div className={BUTTON_BLOCK}>
-          <a className={attributes.color + attributes.size}>
+        <div className={BUTTON_BLOCK + ' cf'}>
+          <span
+            className={color + size}
+            href={ url }
+            target={ target }
+          >
             <RichText
-              onChange={ onChangeContent }
-              value={ attributes.content }
+              value={ content }
+              onChange={ ( value ) => setAttributes( { content: value } ) }
             />
-          </a>
+          </span>
         </div>
+
       </Fragment>
     );
   },
 
   save( { attributes } ) {
-    const { content } = attributes;
+    const { content, color, size, url, target } = attributes;
     return (
-      <div className={BUTTON_BLOCK}>
-        <a href="" className={attributes.color + attributes.size}>
+      <div className={BUTTON_BLOCK + ' cf'}>
+        <a
+          href={ url }
+          className={color + size}
+          target={ target }
+        >
           <RichText.Content
-            value={ attributes.content }
+            value={ content }
           />
         </a>
       </div>
