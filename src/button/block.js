@@ -9,7 +9,7 @@ const BUTTON_BLOCK = ' button-block';
 registerBlockType( 'cocoon-blocks/button', {
 
   title: __( 'ボタン', THEME_NAME ),
-  category: 'cocoon',
+  category: THEME_NAME,
 
   attributes: {
     content: {
@@ -60,7 +60,7 @@ registerBlockType( 'cocoon-blocks/button', {
             />
 
             <SelectControl
-              label={ __( 'Target', 'snow-monkey-blocks' ) }
+              label={ __( 'リンクの開き方', THEME_NAME ) }
               value={ target }
               onChange={ ( value ) => setAttributes( { target: value } ) }
               options={ [
@@ -178,7 +178,7 @@ registerBlockType( 'cocoon-blocks/button', {
           </PanelBody>
         </InspectorControls>
 
-        <div className={BUTTON_BLOCK + ' cf'}>
+        <div className={BUTTON_BLOCK}>
           <span
             className={color + size}
             href={ url }
@@ -198,7 +198,7 @@ registerBlockType( 'cocoon-blocks/button', {
   save( { attributes } ) {
     const { content, color, size, url, target } = attributes;
     return (
-      <div className={BUTTON_BLOCK + ' cf'}>
+      <div className={BUTTON_BLOCK}>
         <a
           href={ url }
           className={color + size}
