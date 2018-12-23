@@ -8,7 +8,7 @@ const BLOCK_BOX = ' block-box';
 
 registerBlockType( 'cocoon-blocks/blank-box', {
 
-  title: __( 'ボックス（白抜き）', THEME_NAME ),
+  title: __( '白抜きボックス', THEME_NAME ),
   icon: 'tablet',
   category: THEME_NAME + '-block',
 

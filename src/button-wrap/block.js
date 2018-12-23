@@ -1,32 +1,28 @@
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls } = wp.editor;
-const { PanelBody, SelectControl, BaseControl, TextControl } = wp.components;
+const { PanelBody, SelectControl, BaseControl, TextareaControl } = wp.components;
 const { Fragment } = wp.element;
 const THEME_NAME = 'cocoon';
 const BUTTON_BLOCK = ' button-block';
 
-registerBlockType( 'cocoon-blocks/button', {
+registerBlockType( 'cocoon-blocks/button-wrap', {
 
-  title: __( 'ボタン', THEME_NAME ),
+  title: __( '囲みボタン', THEME_NAME ),
   category: THEME_NAME + '-block',
 
   attributes: {
     content: {
       type: 'string',
-      default: __( 'ボタン設定', THEME_NAME ),
+      default: __( '囲みボタン設定', THEME_NAME ),
     },
-    url: {
+    tag: {
       type: 'string',
       default: '',
     },
-    target: {
-      type: 'string',
-      default: '_self',
-    },
     color: {
       type: 'string',
-      default: 'btn btn-red',
+      default: 'btn-wrap btn-wrap-red',
     },
     size: {
       type: 'string',
@@ -38,14 +34,12 @@ registerBlockType( 'cocoon-blocks/button', {
   },
 
   edit( { attributes, setAttributes } ) {
-    const { content, color, size, url, target } = attributes;
+    const { content, color, size, tag } = attributes;
 
-    // function onChange(event){
-    //   setAttributes({color: event.target.value});
-    // }
-
-    // function onChangeContent(newContent){
-    //   setAttributes( { content: newContent } );
+    // function unescapeHTML(html) {
+    //   var escapeEl = document.createElement(‘textarea’);
+    //   escapeEl.innerHTML = html;
+    //   return escapeEl.textContent;
     // }
 
     return (
@@ -53,26 +47,10 @@ registerBlockType( 'cocoon-blocks/button', {
         <InspectorControls>
           <PanelBody title={ __( 'ボタン設定', THEME_NAME ) }>
 
-            <TextControl
-              label={ __( 'URL', THEME_NAME ) }
-              value={ url }
-              onChange={ ( value ) => setAttributes( { url: value } ) }
-            />
-
-            <SelectControl
-              label={ __( 'リンクの開き方', THEME_NAME ) }
-              value={ target }
-              onChange={ ( value ) => setAttributes( { target: value } ) }
-              options={ [
-                {
-                  value: '_self',
-                  label: __( '現在のタブで開く', THEME_NAME ),
-                },
-                {
-                  value: '_blank',
-                  label: __( '新しいタブで開く', THEME_NAME ),
-                },
-              ] }
+            <TextareaControl
+              label={ __( 'tag', THEME_NAME ) }
+              value={ tag }
+              onChange={ ( value ) => setAttributes( { tag: value } ) }
             />
 
             <SelectControl
@@ -81,75 +59,75 @@ registerBlockType( 'cocoon-blocks/button', {
               onChange={ ( value ) => setAttributes( { color: value } ) }
               options={ [
                 {
-                  value: 'btn btn-red',
+                  value: 'btn-wrap btn-wrap-red',
                   label: __( 'レッド', THEME_NAME ),
                 },
                 {
-                  value: 'btn btn-pink',
+                  value: 'btn-wrap btn-wrap-pink',
                   label: __( 'ピンク', THEME_NAME ),
                 },
                 {
-                  value: 'btn btn-purple',
+                  value: 'btn-wrap btn-wrap-purple',
                   label: __( 'パープル', THEME_NAME ),
                 },
                 {
-                  value: 'btn btn-deep',
+                  value: 'btn-wrap btn-wrap-deep',
                   label: __( 'ディープパープル', THEME_NAME ),
                 },
                 {
-                  value: 'btn btn-indigo',
+                  value: 'btn-wrap btn-wrap-indigo',
                   label: __( 'インディゴ[紺色]', THEME_NAME ),
                 },
                 {
-                  value: 'btn btn-blue',
+                  value: 'btn-wrap btn-wrap-blue',
                   label: __( 'ブルー', THEME_NAME ),
                 },
                 {
-                  value: 'btn btn-blue',
+                  value: 'btn-wrap btn-wrap-blue',
                   label: __( 'ライトブルー', THEME_NAME ),
                 },
                 {
-                  value: 'btn btn-cyan',
+                  value: 'btn-wrap btn-wrap-cyan',
                   label: __( 'シアン', THEME_NAME ),
                 },
                 {
-                  value: 'btn btn-teal',
+                  value: 'btn-wrap btn-wrap-teal',
                   label: __( 'ティール[緑色がかった青]', THEME_NAME ),
                 },
                 {
-                  value: 'btn btn-green',
+                  value: 'btn-wrap btn-wrap-green',
                   label: __( 'グリーン', THEME_NAME ),
                 },
                 {
-                  value: 'btn btn-light-green',
+                  value: 'btn-wrap btn-wrap-light-green',
                   label: __( 'ライトグリーン', THEME_NAME ),
                 },
                 {
-                  value: 'btn btn-lime',
+                  value: 'btn-wrap btn-wrap-lime',
                   label: __( 'ライム', THEME_NAME ),
                 },
                 {
-                  value: 'btn btn-yellow',
+                  value: 'btn-wrap btn-wrap-yellow',
                   label: __( 'イエロー', THEME_NAME ),
                 },
                 {
-                  value: 'btn btn-amber',
+                  value: 'btn-wrap btn-wrap-amber',
                   label: __( 'アンバー[琥珀色]', THEME_NAME ),
                 },
                 {
-                  value: 'btn btn-orange',
+                  value: 'btn-wrap btn-wrap-orange',
                   label: __( 'オレンジ', THEME_NAME ),
                 },
                 {
-                  value: 'btn btn-deep-orange',
+                  value: 'btn-wrap btn-wrap-deep-orange',
                   label: __( 'ディープオレンジ', THEME_NAME ),
                 },
                 {
-                  value: 'btn btn-brown',
+                  value: 'btn-wrap btn-wrap-brown',
                   label: __( 'ブラウン', THEME_NAME ),
                 },
                 {
-                  value: 'btn btn-grey',
+                  value: 'btn-wrap btn-wrap-grey',
                   label: __( 'グレー', THEME_NAME ),
                 },
               ] }
@@ -178,17 +156,10 @@ registerBlockType( 'cocoon-blocks/button', {
           </PanelBody>
         </InspectorControls>
 
-        <div className={BUTTON_BLOCK}>
-          <span
-            className={color + size}
-            href={ url }
-            target={ target }
-          >
-            <RichText
-              value={ content }
-              onChange={ ( value ) => setAttributes( { content: value } ) }
-            />
-          </span>
+        <div
+          className={color + size + BUTTON_BLOCK}
+          dangerouslySetInnerHTML={{__html: tag}}
+        >
         </div>
 
       </Fragment>
@@ -196,18 +167,12 @@ registerBlockType( 'cocoon-blocks/button', {
   },
 
   save( { attributes } ) {
-    const { content, color, size, url, target } = attributes;
+    const { content, color, size, tag } = attributes;
     return (
-      <div className={BUTTON_BLOCK}>
-        <a
-          href={ url }
-          className={color + size}
-          target={ target }
-        >
-          <RichText.Content
-            value={ content }
-          />
-        </a>
+      <div className={color + size + BUTTON_BLOCK}>
+        <RichText.Content
+          value={ tag }
+        />
       </div>
     );
   }
