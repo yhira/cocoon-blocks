@@ -14,7 +14,8 @@ registerBlockType( 'cocoon-blocks/button-wrap', {
   attributes: {
     content: {
       type: 'string',
-      default: __( '囲みボタン設定', THEME_NAME ),
+      type: 'string',
+      default: __( 'こちらをクリックしてリンクタグを設定エリア入力してください。この入力は公開ページで反映されません。', THEME_NAME ),
     },
     tag: {
       type: 'string',
@@ -45,7 +46,7 @@ registerBlockType( 'cocoon-blocks/button-wrap', {
     return (
       <Fragment>
         <InspectorControls>
-          <PanelBody title={ __( 'ボタン設定', THEME_NAME ) }>
+          <PanelBody title={ __( '囲みボタン設定', THEME_NAME ) }>
 
             <TextareaControl
               label={ __( 'リンクタグ', THEME_NAME ) }
@@ -155,13 +156,16 @@ registerBlockType( 'cocoon-blocks/button-wrap', {
 
           </PanelBody>
         </InspectorControls>
-
+        <span className={'small-msg'}>
+          <RichText
+            value={ content }
+          />
+        </span>
         <div
           className={color + size + BUTTON_BLOCK}
           dangerouslySetInnerHTML={{__html: tag}}
         >
         </div>
-
       </Fragment>
     );
   },
