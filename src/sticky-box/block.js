@@ -8,7 +8,7 @@ const BLOCK_BOX = ' block-box';
 
 registerBlockType( 'cocoon-blocks/sticky-box', {
 
-  title: __( 'ボックス（付箋風）', THEME_NAME ),
+  title: __( '付箋風ボックス', THEME_NAME ),
   icon: 'editor-removeformatting',
   category: 'cocoon',
 

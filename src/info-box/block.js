@@ -8,7 +8,7 @@ const BLOCK_BOX = ' block-box';
 
 registerBlockType( 'cocoon-blocks/info-box', {
 
-  title: __( 'ボックス（案内）', THEME_NAME ),
+  title: __( '案内ボックス', THEME_NAME ),
   icon: 'info',
   category: 'cocoon',
 

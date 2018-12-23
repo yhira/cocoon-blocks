@@ -8,7 +8,7 @@ const BLOCK_BOX = ' block-box';
 
 registerBlockType( 'cocoon-blocks/icon-box', {
 
-  title: __( 'ボックス（アイコン）', THEME_NAME ),
+  title: __( 'アイコンボックス', THEME_NAME ),
   icon: 'art',
   category: 'cocoon',
 
