@@ -48,7 +48,7 @@ registerBlockType( 'cocoon-blocks/button-wrap', {
           <PanelBody title={ __( 'ボタン設定', THEME_NAME ) }>
 
             <TextareaControl
-              label={ __( 'tag', THEME_NAME ) }
+              label={ __( 'リンクタグ', THEME_NAME ) }
               value={ tag }
               onChange={ ( value ) => setAttributes( { tag: value } ) }
             />
@@ -143,11 +143,11 @@ registerBlockType( 'cocoon-blocks/button-wrap', {
                   label: __( '小', THEME_NAME ),
                 },
                 {
-                  value: ' btn-m',
+                  value: ' btn-wrap-m',
                   label: __( '中', THEME_NAME ),
                 },
                 {
-                  value: ' btn-l',
+                  value: ' btn-wrap-l',
                   label: __( '大', THEME_NAME ),
                 },
               ] }
