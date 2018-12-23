@@ -9,7 +9,7 @@ registerBlockType( 'cocoon-blocks/blogcard', {
 
   title: __( 'ブログカード', THEME_NAME ),
   //icon: 'tablet',
-  category: 'cocoon',
+  category: THEME_NAME + '-block',
 
   attributes: {
     content: {

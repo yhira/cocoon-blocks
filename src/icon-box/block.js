@@ -10,7 +10,7 @@ registerBlockType( 'cocoon-blocks/icon-box', {
 
   title: __( 'アイコンボックス', THEME_NAME ),
   icon: 'art',
-  category: 'cocoon',
+  category: THEME_NAME + '-block',
 
   attributes: {
     content: {

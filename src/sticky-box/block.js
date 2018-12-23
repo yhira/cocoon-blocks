@@ -10,7 +10,7 @@ registerBlockType( 'cocoon-blocks/sticky-box', {
 
   title: __( '付箋風ボックス', THEME_NAME ),
   icon: 'editor-removeformatting',
-  category: 'cocoon',
+  category: THEME_NAME + '-block',
 
   attributes: {
     content: {

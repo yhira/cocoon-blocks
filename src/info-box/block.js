@@ -10,7 +10,7 @@ registerBlockType( 'cocoon-blocks/info-box', {
 
   title: __( '案内ボックス', THEME_NAME ),
   icon: 'info',
-  category: 'cocoon',
+  category: THEME_NAME + '-block',
 
   attributes: {
     content: {

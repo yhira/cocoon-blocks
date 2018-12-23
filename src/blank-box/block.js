@@ -10,7 +10,7 @@ registerBlockType( 'cocoon-blocks/blank-box', {
 
   title: __( 'ボックス（白抜き）', THEME_NAME ),
   icon: 'tablet',
-  category: 'cocoon',
+  category: THEME_NAME + '-block',
 
   attributes: {
     content: {

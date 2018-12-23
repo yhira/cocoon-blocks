@@ -10,7 +10,7 @@ registerBlockType( 'cocoon-blocks/tab-box', {
 
   title: __( 'タブボックス', THEME_NAME ),
   icon: 'category',
-  category: 'cocoon',
+  category: THEME_NAME + '-block',
 
   attributes: {
     content: {

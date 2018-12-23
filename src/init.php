@@ -71,8 +71,8 @@ function add_theme_block_categories( $categories, $post ){
 		$categories,
 		array(
 			array(
-				'slug' => THEME_NAME,
-        'title' => __( 'Cocoon', THEME_NAME ),
+				'slug' => THEME_NAME.'-block',
+        'title' => __( 'Cocoonブロック', THEME_NAME ),
         //'icon' => 'heart',
 			),
 		)
