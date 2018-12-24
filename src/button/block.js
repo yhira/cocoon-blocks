@@ -35,6 +35,7 @@ registerBlockType( 'cocoon-blocks/button', {
   },
   supports: {
     align: [ 'left', 'center', 'right' ],
+    customClassName: true,
   },
 
   edit( { attributes, setAttributes } ) {

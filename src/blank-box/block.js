@@ -1,6 +1,6 @@
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls } = wp.editor;
+const { InnerBlocks, RichText, InspectorControls } = wp.editor;
 const { PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const THEME_NAME = 'cocoon';
@@ -17,6 +17,7 @@ registerBlockType( 'cocoon-blocks/blank-box', {
       type: 'string',
       source: 'html',
       selector: 'div',
+      default: __( 'こちらをクリックして枠線変更。この入力は公開ページで反映されません。', THEME_NAME ),
     },
     style: {
       type: 'string',
@@ -72,11 +73,12 @@ registerBlockType( 'cocoon-blocks/blank-box', {
         </InspectorControls>
 
         <div className={attributes.style + BLOCK_BOX}>
-          <RichText
-            onChange={ onChangeContent }
-            value={ attributes.content }
-            multiline="p"
-          />
+          <span className={'small-msg'}>
+            <RichText
+              value={ content }
+            />
+          </span>
+          <InnerBlocks />
         </div>
       </Fragment>
     );
@@ -86,10 +88,7 @@ registerBlockType( 'cocoon-blocks/blank-box', {
     const { content } = attributes;
     return (
       <div className={attributes.style + BLOCK_BOX}>
-          <RichText.Content
-            value={ attributes.content }
-            multiline="p"
-          />
+        <InnerBlocks.Content />
       </div>
     );
   }
