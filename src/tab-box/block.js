@@ -4,6 +4,7 @@ const { InnerBlocks, RichText, InspectorControls } = wp.editor;
 const { PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const THEME_NAME = 'cocoon';
+const BLOCK_MSG = __( 'こちらをクリックして設定変更。この入力は公開ページで反映されません。', THEME_NAME );
 const BLOCK_BOX = ' block-box';
 
 registerBlockType( 'cocoon-blocks/tab-box', {
@@ -17,7 +18,7 @@ registerBlockType( 'cocoon-blocks/tab-box', {
       type: 'string',
       source: 'html',
       selector: 'div',
-      default: __( 'こちらをクリックして設定変更。この入力は公開ページで反映されません。', THEME_NAME ),
+      default: BLOCK_MSG,
     },
     style: {
       type: 'string',
@@ -152,7 +153,7 @@ registerBlockType( 'cocoon-blocks/tab-box', {
           <span className={'small-msg'}>
             <RichText
               value={ content }
-              placeholder={ __( 'こちらをクリックして設定変更。この入力は公開ページで反映されません。', THEME_NAME ) }
+              placeholder={ BLOCK_MSG }
             />
           </span>
           <InnerBlocks />
