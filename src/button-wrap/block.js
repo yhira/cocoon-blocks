@@ -14,7 +14,6 @@ registerBlockType( 'cocoon-blocks/button-wrap', {
   attributes: {
     content: {
       type: 'string',
-      type: 'string',
       default: __( 'こちらをクリックしてリンクタグを設定エリア入力してください。この入力は公開ページで反映されません。', THEME_NAME ),
     },
     tag: {

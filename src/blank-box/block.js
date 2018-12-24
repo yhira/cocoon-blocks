@@ -17,7 +17,6 @@ registerBlockType( 'cocoon-blocks/blank-box', {
       type: 'string',
       source: 'html',
       selector: 'div',
-      default: __( 'こちらをクリックして設定変更。この入力は公開ページで反映されません。', THEME_NAME ),
     },
     style: {
       type: 'string',
@@ -64,7 +63,7 @@ registerBlockType( 'cocoon-blocks/blank-box', {
                 },
                 {
                   value: 'blank-box bb-green',
-                  label: __( '緑色）', THEME_NAME ),
+                  label: __( '緑色', THEME_NAME ),
                 },
               ] }
             />
@@ -76,6 +75,7 @@ registerBlockType( 'cocoon-blocks/blank-box', {
           <span className={'small-msg'}>
             <RichText
               value={ content }
+              placeholder={ __( 'こちらをクリックして設定変更。この入力は公開ページで反映されません。', THEME_NAME ) }
             />
           </span>
           <InnerBlocks />

@@ -152,6 +152,7 @@ registerBlockType( 'cocoon-blocks/tab-box', {
           <span className={'small-msg'}>
             <RichText
               value={ content }
+              placeholder={ __( 'こちらをクリックして設定変更。この入力は公開ページで反映されません。', THEME_NAME ) }
             />
           </span>
           <InnerBlocks />
