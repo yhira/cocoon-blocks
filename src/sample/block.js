@@ -1,172 +1,78 @@
-const { __ } = wp.i18n;
-const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls } = wp.editor;
-const { PanelBody, SelectControl, BaseControl } = wp.components;
-const { Fragment } = wp.element;
-const THEME_NAME = 'cocoon';
-const BLOCK_BOX = ' block-box';
-
-registerBlockType( 'cocoon-blocks/tab-box', {
-
-  title: __( 'タブボックス', THEME_NAME ),
-  icon: 'category',
-  category: THEME_NAME + '-block',
-
-  attributes: {
-    content: {
-      type: 'string',
-      source: 'html',
-      selector: 'div',
+registerBlockType( 'my-plugin/my-block', {
+    title: 'my-block', //ブロック要素のタイトル,(required)
+    description: 'this is a my-block description', //ブロックの説明
+    category: 'layout', // common,formatting,layout,widgets,embedから選択(required）
+    icon: 'book-alt', //　https://developer.wordpress.org/resource/dashicons/ から指定,
+    keywords: [ image, photo, pics ], //ブロック要素検索時のタグキーワード
+    styles: [
+        // ブロック要素のスタイルを設定
+        {
+            name: 'default', //.is-style-defaultクラスが生成される
+            label: __( 'Rounded' ), //エディターでの表示名
+            isDefault: true, //trueでこれがデフォルトスタイルになる
+        },
+        {
+            name: 'squared', //.is-style-squaredクラスが生成される
+            label: __( 'Squared' ),
+        },
+    ],
+    attributes: {
+        //ブロック要素内のコンテンツをどのように表示させるか、という属性を指定する(https://wordpress.org/gutenberg/handbook/designers-developers/developers/block-api/block-attributes/)
+        content: {
+            type: 'string',
+            source: 'html',
+            selector: 'p',
+        },
+        align: {
+            type: 'string',
+        },
     },
-    style: {
-      type: 'string',
-      default: 'blank-box bb-tab bb-check',
+    transforms: {
+        //ブロックタイプの変更
+        from: [
+            //どのブロックタイプから変更できるようにするか
+            {
+                type: 'block',
+                blocks: [ 'core/paragraph' ],
+                transform: function( content ) {
+                    return createBlock( 'core/heading', {
+                        content,
+                    } );
+                },
+            },
+        ],
+        to: [
+            //どのブロックタイプへ変更できるようにするか
+            {
+                type: 'block',
+                blocks: [ 'core/paragraph' ],
+                transform: function( content ) {
+                    return createBlock( 'core/paragraph', {
+                        content,
+                    } );
+                },
+            },
+        ],
     },
-    color: {
-      type: 'string',
-      default: '',
+    parent: [ 'core/columns' ], //ブロック要素を入れ子にする場合、入れ子にできるブロックを指定する
+    supports: {
+        //save関数で返される要素に対する設定
+        align: true, //(default:false) ブロックのalign設定。配列で個別指定も可能 (left, center, right, wide, full)
+        alignWide: false, //(default:true)全幅・幅広表示の設定。falseで無効にする
+        anchor: true, //(default:false)アンカーリンクの設定。
+        customClassName: false, //(default:true)クラス名の設定。有効にするとオリジナルのクラス名を入力する欄が表示される。
+        className: false, //(default:true)ブロック要素を作成した際に付く　.wp-block-[ブロック名]で自動生成されるクラス名の設定。
+        html: false, //(default:true)HTMLでの編集設定。通常Gutenbergはビジュアル編集ですが、trueでHTML編集が選択可能になります。
+        inserter: false, //(default:true)trueで「ブロックの追加」ボタンからこのブロック要素を選択可能にします。falseでブロック要素の選択画面からこのブロック要素を隠します。
+        multiple: false, //(default:true)trueでこのブロック要素を一つのページで複数作成可能になります。
+        reusable: false, //(default:true)trueで再利用可能なブロックに追加する設定が選択可能になります。
     },
-  },
-
-  edit( { attributes, setAttributes } ) {
-    const { content, style, alignment } = attributes;
-
-    function onChange(event){
-      setAttributes({style: event.target.value});
-    }
-
-    function onChangeContent(newContent){
-      setAttributes( { content: newContent } );
-    }
-
-    return (
-      <Fragment>
-        <InspectorControls>
-          <PanelBody title={ __( 'スタイル設定', THEME_NAME ) }>
-
-            <SelectControl
-              label={ __( 'タイプ', THEME_NAME ) }
-              value={ style }
-              onChange={ ( value ) => setAttributes( { style: value } ) }
-              options={ [
-                {
-                  value: 'blank-box bb-tab bb-check',
-                  label: __( 'チェック', THEME_NAME ),
-                },
-                {
-                  value: 'blank-box bb-tab bb-comment',
-                  label: __( 'コメント', THEME_NAME ),
-                },
-                {
-                  value: 'blank-box bb-tab bb-point',
-                  label: __( 'ポイント', THEME_NAME ),
-                },
-                {
-                  value: 'blank-box bb-tab bb-tips',
-                  label: __( 'ティップス', THEME_NAME ),
-                },
-                {
-                  value: 'blank-box bb-tab bb-hint',
-                  label: __( 'ヒント', THEME_NAME ),
-                },
-                {
-                  value: 'blank-box bb-tab bb-pickup',
-                  label: __( 'ピックアップ', THEME_NAME ),
-                },
-                {
-                  value: 'blank-box bb-tab bb-bookmark',
-                  label: __( 'ブックマーク', THEME_NAME ),
-                },
-                {
-                  value: 'blank-box bb-tab bb-memo',
-                  label: __( 'メモ', THEME_NAME ),
-                },
-                {
-                  value: 'blank-box bb-tab bb-download',
-                  label: __( 'ダウンロード', THEME_NAME ),
-                },
-                {
-                  value: 'blank-box bb-tab bb-break',
-                  label: __( 'ブレイク', THEME_NAME ),
-                },
-                {
-                  value: 'blank-box bb-tab bb-amazon',
-                  label: __( 'Amazon', THEME_NAME ),
-                },
-                {
-                  value: 'blank-box bb-tab bb-ok',
-                  label: __( 'OK', THEME_NAME ),
-                },
-                {
-                  value: 'blank-box bb-tab bb-ng',
-                  label: __( 'NG', THEME_NAME ),
-                },
-                {
-                  value: 'blank-box bb-tab bb-good',
-                  label: __( 'GOOD', THEME_NAME ),
-                },
-                {
-                  value: 'blank-box bb-tab bb-bad',
-                  label: __( 'BAD', THEME_NAME ),
-                },
-                {
-                  value: 'blank-box bb-tab bb-profile',
-                  label: __( 'プロフィール', THEME_NAME ),
-                },
-              ] }
-            />
-
-            <SelectControl
-              label={ __( '色', THEME_NAME ) }
-              value={ style }
-              onChange={ ( value ) => setAttributes( { color: value } ) }
-              options={ [
-                {
-                  value: '',
-                  label: __( '灰色', THEME_NAME ),
-                },
-                {
-                  value: ' bb-yellow',
-                  label: __( '黄色', THEME_NAME ),
-                },
-                {
-                  value: ' bb-red',
-                  label: __( '赤色', THEME_NAME ),
-                },
-                {
-                  value: ' bb-blue',
-                  label: __( '青色', THEME_NAME ),
-                },
-                {
-                  value: ' bb-green',
-                  label: __( '緑色', THEME_NAME ),
-                },
-              ] }
-            />
-
-          </PanelBody>
-        </InspectorControls>
-
-        <div className={attributes.style + attributes.color + BLOCK_BOX}>
-          <RichText
-            onChange={ onChangeContent }
-            value={ attributes.content }
-            multiline="p"
-          />
-        </div>
-      </Fragment>
-    );
-  },
-
-  save( { attributes } ) {
-    const { content } = attributes;
-    return (
-      <div className={attributes.style + attributes.color + BLOCK_BOX}>
-          <RichText.Content
-            value={ attributes.content }
-            multiline="p"
-          />
-      </div>
-    );
-  }
+    edit() {
+        //エディターでの表示設定
+        return 'テスト';
+    },
+    save() {
+        //公開記事での表示設定
+        return 'テスト';
+    },
 } );
