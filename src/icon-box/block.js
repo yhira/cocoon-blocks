@@ -1,6 +1,6 @@
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls } = wp.editor;
+const { InnerBlocks, RichText, InspectorControls } = wp.editor;
 const { PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const THEME_NAME = 'cocoon';
