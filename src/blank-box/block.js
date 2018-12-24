@@ -11,6 +11,7 @@ registerBlockType( 'cocoon-blocks/blank-box', {
   title: __( '白抜きボックス', THEME_NAME ),
   icon: 'tablet',
   category: THEME_NAME + '-block',
+  keywords: [ box, blank ], //ブロック要素検索時のタグキーワード
 
   attributes: {
     content: {
