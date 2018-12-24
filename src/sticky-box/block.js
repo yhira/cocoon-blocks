@@ -17,6 +17,7 @@ registerBlockType( 'cocoon-blocks/sticky-box', {
       type: 'string',
       source: 'html',
       selector: 'div',
+      default: __( 'こちらをクリックして設定変更。この入力は公開ページで反映されません。', THEME_NAME ),
     },
     style: {
       type: 'string',
