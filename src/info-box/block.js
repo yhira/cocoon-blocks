@@ -81,11 +81,12 @@ registerBlockType( 'cocoon-blocks/info-box', {
         </InspectorControls>
 
         <div className={attributes.style + BLOCK_BOX}>
-          <RichText
-            onChange={ onChangeContent }
-            value={ attributes.content }
-            multiline="p"
-          />
+          <span className={'small-msg'}>
+            <RichText
+              value={ content }
+            />
+          </span>
+          <InnerBlocks />
         </div>
       </Fragment>
     );
@@ -95,10 +96,7 @@ registerBlockType( 'cocoon-blocks/info-box', {
     const { content } = attributes;
     return (
       <div className={attributes.style + BLOCK_BOX}>
-          <RichText.Content
-            value={ attributes.content }
-            multiline="p"
-          />
+        <InnerBlocks.Content />
       </div>
     );
   }
