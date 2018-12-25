@@ -8,10 +8,10 @@
  * @package CGB
  */
 
-// Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+// // Exit if accessed directly.
+// if ( !defined( 'ABSPATH' ) ) {
+// 	exit;
+// }
 
 /**
  * Enqueue Gutenberg block assets for both frontend + backend.
