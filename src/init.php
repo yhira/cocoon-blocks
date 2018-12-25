@@ -19,6 +19,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @uses {wp-editor} for WP editor styles.
  * @since 1.0.0
  */
+// Hook: Frontend assets.
+add_action( 'enqueue_block_assets', 'cocoon_blocks_cgb_block_assets' );
 function cocoon_blocks_cgb_block_assets() { // phpcs:ignore
 	// Styles.
 	wp_enqueue_style(
@@ -29,8 +31,6 @@ function cocoon_blocks_cgb_block_assets() { // phpcs:ignore
 	);
 }
 
-// Hook: Frontend assets.
-add_action( 'enqueue_block_assets', 'cocoon_blocks_cgb_block_assets' );
 
 /**
  * Enqueue Gutenberg block assets for backend editor.
@@ -41,6 +41,8 @@ add_action( 'enqueue_block_assets', 'cocoon_blocks_cgb_block_assets' );
  * @uses {wp-editor} for WP editor styles.
  * @since 1.0.0
  */
+// Hook: Editor assets.
+add_action( 'enqueue_block_editor_assets', 'cocoon_blocks_cgb_editor_assets' );
 function cocoon_blocks_cgb_editor_assets() { // phpcs:ignore
 	// Scripts.
 	wp_enqueue_script(
@@ -60,12 +62,9 @@ function cocoon_blocks_cgb_editor_assets() { // phpcs:ignore
 	);
 }
 
-// Hook: Editor assets.
-add_action( 'enqueue_block_editor_assets', 'cocoon_blocks_cgb_editor_assets' );
-
 //Cocoonカテゴリーを追加
-add_filter( 'block_categories', 'add_theme_block_categories', 10, 2 );
-if ( !function_exists( 'add_theme_block_categories' ) ):
+add_filter( 'block_categories', 'add_cocoon_theme_block_categories', 10, 2 );
+if ( !function_exists( 'add_cocoon_theme_block_categories' ) ):
 function add_theme_block_categories( $categories, $post ){
 	return array_merge(
 		$categories,
