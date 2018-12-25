@@ -13,6 +13,10 @@
 // 	exit;
 // }
 
+//個々でフックに対してis_admin()で条件分岐しているのは、このようにしないとwpForoフォーラム画面が真っ白になってしまうため
+//何か不都合がありましたら以下まで。
+//https://wp-cocoon.com/community/
+
 /**
  * Enqueue Gutenberg block assets for both frontend + backend.
  *
@@ -20,7 +24,9 @@
  * @since 1.0.0
  */
 // Hook: Frontend assets.
-add_action( 'enqueue_block_assets', 'cocoon_blocks_cgb_block_assets' );
+if (is_admin()) {
+	add_action( 'enqueue_block_assets', 'cocoon_blocks_cgb_block_assets' );
+}
 function cocoon_blocks_cgb_block_assets() { // phpcs:ignore
 	// Styles.
 	wp_enqueue_style(
@@ -42,7 +48,9 @@ function cocoon_blocks_cgb_block_assets() { // phpcs:ignore
  * @since 1.0.0
  */
 // Hook: Editor assets.
-add_action( 'enqueue_block_editor_assets', 'cocoon_blocks_cgb_editor_assets' );
+if (is_admin()) {
+	add_action( 'enqueue_block_editor_assets', 'cocoon_blocks_cgb_editor_assets' );
+}
 function cocoon_blocks_cgb_editor_assets() { // phpcs:ignore
 	// Scripts.
 	wp_enqueue_script(
@@ -63,9 +71,11 @@ function cocoon_blocks_cgb_editor_assets() { // phpcs:ignore
 }
 
 //Cocoonカテゴリーを追加
-add_filter( 'block_categories', 'add_cocoon_theme_block_categories', 10, 2 );
+if (is_admin()) {
+	add_filter( 'block_categories', 'add_cocoon_theme_block_categories', 10, 2 );
+}
 if ( !function_exists( 'add_cocoon_theme_block_categories' ) ):
-function add_theme_block_categories( $categories, $post ){
+function add_cocoon_theme_block_categories( $categories, $post ){
 	return array_merge(
 		$categories,
 		array(
