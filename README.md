@@ -3,7 +3,7 @@ Cocoon Blocks
 
 Cocoon Blocksは、WordPressテーマの「Cocoon」専用のブロックエディタープラグインです。。
 
-Cocoonテーマの詳細は以下のURLを参照してください。
+Cocoonテーマの詳細はURLを参照してください。
 https://wp-cocoon.com/
 
 
