@@ -48,7 +48,7 @@ registerBlockType( 'cocoon-blocks/button-wrap', {
           <PanelBody title={ __( '囲みボタン設定', THEME_NAME ) }>
 
             <TextareaControl
-              label={ __( 'リンクタグ', THEME_NAME ) }
+              label={ __( 'リンクタグ・ショートコード', THEME_NAME ) }
               value={ tag }
               onChange={ ( value ) => setAttributes( { tag: value } ) }
             />

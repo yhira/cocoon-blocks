@@ -60,6 +60,10 @@ registerBlockType( 'cocoon-blocks/info-box', {
                   label: __( 'インフォ（薄い青）', THEME_NAME ),
                 },
                 {
+                  value: 'success-box',
+                  label: __( 'サクセス（薄い緑）', THEME_NAME ),
+                },
+                {
                   value: 'warning-box',
                   label: __( 'ワーニング（薄い黄色）', THEME_NAME ),
                 },
