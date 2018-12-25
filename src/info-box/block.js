@@ -82,7 +82,7 @@ registerBlockType( 'cocoon-blocks/info-box', {
         </InspectorControls>
 
         <div className={attributes.style + BLOCK_BOX}>
-          <span className={'small-msg'}>
+          <span className={'box-block-msg'}>
             <RichText
               value={ content }
               placeholder={ BLOCK_MSG }

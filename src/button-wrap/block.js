@@ -155,7 +155,7 @@ registerBlockType( 'cocoon-blocks/button-wrap', {
 
           </PanelBody>
         </InspectorControls>
-        <span className={'small-msg'}>
+        <span className={'button-wrap-msg'}>
           <RichText
             value={ content }
           />
