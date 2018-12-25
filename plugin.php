@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Cocoon Blocks
  * Plugin URI: https://wp-cocoon.com/cocoon-blocks/
- * Description: Cocoon Blocks — is a Gutenberg plugin created via create-guten-block.
+ * Description: Cocoonテーマ専用のブロックエディター（Gutenberg）対応プラグイン
  * Author: わいひら
  * Author URI: https://nelog.jp/
  * Version: 0.0.2
