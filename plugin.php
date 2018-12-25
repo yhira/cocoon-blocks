@@ -5,7 +5,8 @@
  * Description: Cocoonテーマ専用のブロックエディター（Gutenberg）対応プラグイン
  * Author: わいひら
  * Author URI: https://nelog.jp/
- * Version: 0.0.2
+ * Version: 0.0.3
+ * Text Domain: cocoon-blocks-master
  * License: GPL2+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
  *
@@ -30,7 +31,7 @@ require_once plugin_dir_path( __FILE__ ) . 'plugin-update-checker/plugin-update-
 $CocoonBlocksUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
     'https://raw.githubusercontent.com/yhira/cocoon-blocks/master/update-info.json',
     __FILE__,
-    'cocoon-blocks'
+    'cocoon-blocks-master'
 );
 
 
