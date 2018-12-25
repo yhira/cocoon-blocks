@@ -18,6 +18,7 @@ import './tab-box/block.js';
 import './blogcard/block.js';
 import './button/block.js';
 import './button-wrap/block.js';
+import './search-box/block.js';
 
 
 
