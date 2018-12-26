@@ -31,15 +31,19 @@ registerBlockType( 'cocoon-blocks/tab-box', {
   },
 
   edit( { attributes, setAttributes } ) {
-    const { content, style, alignment } = attributes;
+    const { content, style, color } = attributes;
 
-    function onChange(event){
-      setAttributes({style: event.target.value});
-    }
+    // function onChange(event){
+    //   setAttributes({style: event.target.value});
+    // }
 
-    function onChangeContent(newContent){
-      setAttributes( { content: newContent } );
-    }
+    // function onChangeColor(event){
+    //   setAttributes({color: event.target.value});
+    // }
+
+    // function onChangeContent(newContent){
+    //   setAttributes( { content: newContent } );
+    // }
 
     return (
       <Fragment>
@@ -120,7 +124,7 @@ registerBlockType( 'cocoon-blocks/tab-box', {
 
             <SelectControl
               label={ __( '色', THEME_NAME ) }
-              value={ style }
+              value={ color }
               onChange={ ( value ) => setAttributes( { color: value } ) }
               options={ [
                 {
