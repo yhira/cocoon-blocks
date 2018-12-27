@@ -93,3 +93,16 @@ function add_cocoon_theme_block_categories( $categories, $post ){
 	);
 }
 endif;
+
+// add_action( 'enqueue_block_editor_assets', function () {
+//    wp_enqueue_style( 'my_plugin', plugins_url( 'assets/css/editor.css', __FILE__ ) );
+//    wp_enqueue_script( 'my_plugin', plugins_url( 'assets/js/editor.js', __FILE__ ), [
+//       'wp-element',
+//       'wp-rich-text',
+//       'wp-editor',
+//    ] );
+//    wp_localize_script( 'my_plugin', 'my_plugin_obj', [
+//       'title' => 'My Plugin',
+//       'class' => 'my-plugin',
+//    ] );
+// } );

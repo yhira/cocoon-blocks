@@ -1,3 +1,4 @@
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { InnerBlocks, RichText, InspectorControls } = wp.editor;

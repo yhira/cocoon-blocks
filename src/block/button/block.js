@@ -9,6 +9,7 @@ const BUTTON_BLOCK = ' button-block';
 registerBlockType( 'cocoon-blocks/button', {
 
   title: __( 'ボタン', THEME_NAME ),
+  icon: 'embed-generic',
   category: THEME_NAME + '-block',
 
   attributes: {

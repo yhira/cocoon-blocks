@@ -23,6 +23,11 @@ import './block/search-box/block.js';
 
 
 
+//import './toolbutton/block.js';
+import './toolbutton/bold.js';
+import './toolbutton/red.js';
+import './toolbutton/bold-red.js';
+import './toolbutton/blue.js';
 
 
 
