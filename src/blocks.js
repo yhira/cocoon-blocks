@@ -10,15 +10,16 @@
  */
 
 //const THEME_NAME = 'cocoon';
-import './icon-box/block.js';
-import './info-box/block.js';
-import './blank-box/block.js';
-import './sticky-box/block.js';
-import './tab-box/block.js';
-import './blogcard/block.js';
-import './button/block.js';
-import './button-wrap/block.js';
-import './search-box/block.js';
+//ブロック
+import './block/icon-box/block.js';
+import './block/info-box/block.js';
+import './block/blank-box/block.js';
+import './block/sticky-box/block.js';
+import './block/tab-box/block.js';
+import './block/blogcard/block.js';
+import './block/button/block.js';
+import './block/button-wrap/block.js';
+import './block/search-box/block.js';
 
 
 
