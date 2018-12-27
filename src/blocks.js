@@ -28,6 +28,9 @@ import './toolbutton/bold.js';
 import './toolbutton/red.js';
 import './toolbutton/bold-red.js';
 import './toolbutton/blue.js';
+import './toolbutton/bold-blue.js';
+import './toolbutton/green.js';
+import './toolbutton/bold-green.js';
 
 
 
