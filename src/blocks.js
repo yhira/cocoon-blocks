@@ -31,6 +31,10 @@ import './toolbutton/blue.js';
 import './toolbutton/bold-blue.js';
 import './toolbutton/green.js';
 import './toolbutton/bold-green.js';
+import './toolbutton/strike.js';
+import './toolbutton/marker.js';
+import './toolbutton/marker-under.js';
+import './toolbutton/marker-blue.js';
 
 
 
