@@ -84,6 +84,11 @@ function add_cocoon_theme_block_categories( $categories, $post ){
         'title' => __( 'Cocoonブロック', THEME_NAME ),
         //'icon' => 'heart',
 			),
+			array(
+				'slug' => THEME_NAME.'-layout',
+        'title' => __( 'Cocoonレイアウト', THEME_NAME ),
+        //'icon' => 'heart',
+			),
 		)
 	);
 }
