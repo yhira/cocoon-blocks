@@ -1,12 +1,8 @@
 /**
- * Gutenberg Blocks
- *
- * All blocks related JavaScript files should be imported here.
- * You can create a new block folder in this dir and include code
- * for that block here as well.
- *
- * All blocks should be included here since this is the file that
- * Webpack is compiling as the input file.
+ * Cocoon Blocks
+ * @author: yhira
+ * @link: https://wp-cocoon.com/
+ * @license: http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
  */
 
 //const THEME_NAME = 'cocoon';

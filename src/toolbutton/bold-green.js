@@ -1,3 +1,10 @@
+/**
+ * Cocoon Blocks
+ * @author: yhira
+ * @link: https://wp-cocoon.com/
+ * @license: http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ */
+
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 const { registerFormatType, toggleFormat } = wp.richText;
@@ -16,7 +23,7 @@ registerFormatType( FORMAT_TYPE_NAME, {
       <Fragment>
         <RichTextShortcut
           type='primary'
-          character='n'
+          character=''
           onUse={ onToggle }
         />
         <RichTextToolbarButton
@@ -25,7 +32,7 @@ registerFormatType( FORMAT_TYPE_NAME, {
           onClick={ onToggle }
           isActive={ isActive }
           shortcutType='primary'
-          shortcutCharacter='n'
+          shortcutCharacter=''
         />
       </Fragment>
     );
