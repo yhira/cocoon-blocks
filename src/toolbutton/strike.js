@@ -28,7 +28,7 @@ registerFormatType( FORMAT_TYPE_NAME, {
           onUse={ onToggle }
         />
         <RichTextToolbarButton
-          title={ __( '打ち消し線', THEME_NAME ) }
+          title={ __( '打ち消し線（訂正）', THEME_NAME ) }
           icon={ <FontAwesomeIcon icon="strikethrough" /> }
           onClick={ onToggle }
           isActive={ isActive }
