@@ -35,6 +35,15 @@ function cocoon_blocks_cgb_block_assets() { // phpcs:ignore
 		array( 'wp-editor' ) // Dependency to include the CSS after it.
 		// filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.style.build.css' ) // Version: File modification time.
 	);
+
+	//Font Awesome
+	wp_enqueue_script(
+		'cocoon_blocks-fontawesome5-js',
+		'https://use.fontawesome.com/releases/v5.6.3/js/all.js',
+		array(),
+		'5.6.3',
+		true
+	);
 }
 
 
