@@ -17,7 +17,7 @@ registerFormatType( FORMAT_TYPE_NAME, {
       <Fragment>
         <RichTextShortcut
           type='primary'
-          character='y'
+          character=''
           onUse={ onToggle }
         />
         <RichTextToolbarButton
@@ -26,7 +26,7 @@ registerFormatType( FORMAT_TYPE_NAME, {
           onClick={ onToggle }
           isActive={ isActive }
           shortcutType='primary'
-          shortcutCharacter='y'
+          shortcutCharacter=''
         />
       </Fragment>
     );
