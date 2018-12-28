@@ -37,13 +37,15 @@ function cocoon_blocks_cgb_block_assets() { // phpcs:ignore
 	);
 
 	//Font Awesome
-	wp_enqueue_script(
-		'cocoon_blocks-fontawesome5-js',
-		'https://use.fontawesome.com/releases/v5.6.3/js/all.js',
-		array(),
-		'5.6.3',
-		true
-	);
+	if (apply_filters( 'cocoon_blocks_wp_enqueue_script_fontawesome', true )) {
+		wp_enqueue_script(
+			'cocoon_blocks-fontawesome5-js',
+			'https://use.fontawesome.com/releases/v5.6.3/js/all.js',
+			array(),
+			'5.6.3',
+			true
+		);
+	}
 }
 
 
