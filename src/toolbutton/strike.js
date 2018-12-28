@@ -14,9 +14,9 @@ const FORMAT_TYPE_NAME = 'cocoon-blocks/strike';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 registerFormatType( FORMAT_TYPE_NAME, {
-  title: __( '打ち消し線', THEME_NAME ),
-  tagName: 'span',
-  className: 'strike',
+  title: __( '打ち消し線（訂正）', THEME_NAME ),
+  tagName: 's',
+  className: null,
   edit( { isActive, value, onChange } ) {
     const onToggle = () => onChange( toggleFormat( value, { type: FORMAT_TYPE_NAME } ) );
 
