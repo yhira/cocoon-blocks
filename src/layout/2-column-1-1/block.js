@@ -11,19 +11,19 @@ const { RichText, InspectorControls } = wp.editor;
 const { PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const THEME_NAME = 'cocoon';
-const DEFAULT_MSG = __( 'キーワード', THEME_NAME );
-const BLOCK_CLASS = ' block-box';
+//const DEFAULT_MSG = __( 'キーワード', THEME_NAME );
+const BLOCK_CLASS = ' layout-box';
 
-registerBlockType( 'cocoon-blocks/search-box', {
+registerBlockType( 'cocoon-blocks/2-column-1-1', {
 
-  title: __( '検索案内', THEME_NAME ),
+  title: __( '2カラム（1:1）', THEME_NAME ),
   icon: 'search',
   category: THEME_NAME + '-block',
 
   attributes: {
     content: {
       type: 'string',
-      default: DEFAULT_MSG,
+      //default: DEFAULT_MSG,
     },
   },
 
@@ -36,12 +36,20 @@ registerBlockType( 'cocoon-blocks/search-box', {
 
     return (
       <Fragment>
-        <div className={"search-form" + BLOCK_CLASS}>
+        <div class="column-wrap column-2">
+          <div class="column-left">
+            <p>左側に入力する内容</p>
+          </div>
+          <div class="column-right">
+            <p>右側に入力する内容</p>
+          </div>
+        </div>
+        <div className="search-form">
           <div className="sform">
             <RichText
               value={ content }
               onChange={ ( value ) => setAttributes( { content: value } ) }
-              placeholder={ DEFAULT_MSG }
+              //placeholder={ DEFAULT_MSG }
             />
           </div>
           <div className="sbtn">検索</div>

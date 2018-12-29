@@ -4,8 +4,8 @@ const { InnerBlocks, RichText, InspectorControls } = wp.editor;
 const { PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const THEME_NAME = 'cocoon';
-const BLOCK_MSG = __( 'こちらをクリックして設定変更。この入力は公開ページで反映されません。', THEME_NAME );
-const BLOCK_BOX = ' block-box';
+const DEFAULT_MSG = __( 'こちらをクリックして設定変更。この入力は公開ページで反映されません。', THEME_NAME );
+const BLOCK_CLASS = ' block-box';
 
 registerBlockType( 'cocoon-blocks/tab-box', {
 
@@ -18,7 +18,7 @@ registerBlockType( 'cocoon-blocks/tab-box', {
       type: 'string',
       source: 'html',
       selector: 'div',
-      default: BLOCK_MSG,
+      default: DEFAULT_MSG,
     },
     style: {
       type: 'string',
@@ -153,11 +153,11 @@ registerBlockType( 'cocoon-blocks/tab-box', {
           </PanelBody>
         </InspectorControls>
 
-        <div className={attributes.style + attributes.color + BLOCK_BOX}>
+        <div className={attributes.style + attributes.color + BLOCK_CLASS}>
           <span className={'box-block-msg'}>
             <RichText
               value={ content }
-              placeholder={ BLOCK_MSG }
+              placeholder={ DEFAULT_MSG }
             />
           </span>
           <InnerBlocks />
@@ -169,7 +169,7 @@ registerBlockType( 'cocoon-blocks/tab-box', {
   save( { attributes } ) {
     const { content } = attributes;
     return (
-      <div className={attributes.style + attributes.color + BLOCK_BOX}>
+      <div className={attributes.style + attributes.color + BLOCK_CLASS}>
         <InnerBlocks.Content />
       </div>
     );
