@@ -17,8 +17,10 @@ import './block/button/block.js';
 import './block/button-wrap/block.js';
 import './block/search-box/block.js';
 
+//レイアウト
+//import './layout/column-2-1-1/block.js';
 
-
+//ツールボタン
 //import './toolbutton/block.js';
 import './toolbutton/bold.js';
 import './toolbutton/red.js';

@@ -47,7 +47,7 @@ registerBlockType( 'cocoon-blocks/blogcard', {
           <PanelBody title={ __( 'スタイル設定', THEME_NAME ) }>
 
             <SelectControl
-              label={ __( 'タイプ', THEME_NAME ) }
+              label={ __( 'ラベル', THEME_NAME ) }
               value={ style }
               onChange={ ( value ) => setAttributes( { style: value } ) }
               options={ [
