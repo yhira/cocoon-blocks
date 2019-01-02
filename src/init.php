@@ -124,3 +124,5 @@ endif;
 //       'class' => 'my-plugin',
 //    ] );
 // } );
+
+require_once plugin_dir_path( __FILE__ ) . 'block/test/block.php';
