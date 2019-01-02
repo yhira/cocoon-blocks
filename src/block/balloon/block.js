@@ -10,11 +10,11 @@ registerBlockType( 'cocoon-blocks/balloon', {
 
   edit: function( props ) {
     // ensure the block attributes matches this plugin's name
-    console.log(props);
+    //console.log(props);
     return (
       <ServerSideRender
-          block="cocoon-blocks/balloon-editor"
-          attributes={ props.attributes }
+        block="cocoon-blocks/balloon-editor"
+        attributes={ props.attributes }
       />
     );
   },

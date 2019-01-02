@@ -75,7 +75,7 @@ registerBlockType( 'cocoon-blocks/info-drop', {
         />
         <RichText
           onChange={ onChangeContent }
-          value={ attributes.content }
+          value={ content }
           multiline="p"
         />
       </div>
@@ -83,10 +83,11 @@ registerBlockType( 'cocoon-blocks/info-drop', {
   },
 
   save( { attributes } ) {
+    const { content, style } = attributes;
     return (
-      <div className={attributes.style}>
+      <div className={ style }>
           <RichText.Content
-            value={ attributes.content }
+            value={ content }
             multiline="p"
           />
       </div>
