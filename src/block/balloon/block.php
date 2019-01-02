@@ -16,13 +16,13 @@ function my_plugin_render_block_latest_post( $attributes, $content ) {
     );
 }
 
-register_block_type( 'my-plugin/latest-post', array(
+register_block_type( 'cocoon-blocks/balloon', array(
     'render_callback' => 'my_plugin_render_block_latest_post',
 ) );
 
 
 
-register_block_type( 'my-plugin/latest-post-editor', array(
+register_block_type( 'cocoon-blocks/balloon-editor', array(
     'render_callback' => function(){return 'latest-post-editor';},
 ) );
 

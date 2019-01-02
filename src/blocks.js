@@ -16,7 +16,11 @@ import './block/blogcard/block.js';
 import './block/button/block.js';
 import './block/button-wrap/block.js';
 import './block/search-box/block.js';
-import './block/test/block.js';
+
+//import './block/test/block.js';
+import './block/info-box-drop/block.js';
+import './block/balloon/block.js';
+
 
 //レイアウト
 //import './layout/column-2-1-1/block.js';
