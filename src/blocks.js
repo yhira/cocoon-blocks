@@ -17,9 +17,13 @@ import './block/button/block.js';
 import './block/button-wrap/block.js';
 import './block/search-box/block.js';
 
-//import './block/test/block.js';
-import './block/info-box-drop/block.js';
-import './block/balloon/block.js';
+import './demo/test/block.js';
+import './demo/info-box-drop/block.js';
+import './demo/balloon/block.js';
+import './demo/blank-box-demo/block.js';
+import './demo/test-as-shortcode-text/block.js';
+import './demo/test-severside-as-shortcode-input/block.js';
+import './demo/test-get-id/block.js';
 
 
 //レイアウト

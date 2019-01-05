@@ -9,15 +9,15 @@
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { InnerBlocks, RichText, InspectorControls } = wp.editor;
-const { PanelBody, SelectControl, BaseControl } = wp.components;
+const { PanelBody, SelectControl, BaseControl, ServerSideRender } = wp.components;
 const { Fragment } = wp.element;
 const THEME_NAME = 'cocoon';
 const DEFAULT_MSG = __( 'こちらをクリックして設定変更。この入力は公開ページで反映されません。', THEME_NAME );
 const BLOCK_CLASS = ' block-box';
 
-registerBlockType( 'cocoon-blocks/blank-box-demo', {
+registerBlockType( 'cocoon-blocks/blank-box', {
 
-  title: __( '白抜きボックス', THEME_NAME ),
+  title: __( 'サーバー動作デモボックス', THEME_NAME ),
   icon: 'tablet',
   category: THEME_NAME + '-block',
 
@@ -30,26 +30,21 @@ registerBlockType( 'cocoon-blocks/blank-box-demo', {
     },
     style: {
       type: 'string',
-      default: 'blank-box-demo',
+      default: 'blank-box',
     },
   },
-
-  edit( { attributes, setAttributes } ) {
-    const { content, style, alignment } = attributes;
-
-    function onChange(event){
-      setAttributes({style: event.target.value});
-    }
-
-    function onChangeContent(newContent){
-      setAttributes( { content: newContent } );
-    }
-
+  edit: function( props ) {
+    const { attributes, setAttributes } = props;
+    const { style } = attributes;
+    // ensure the block attributes matches this plugin's name
     return (
       <Fragment>
         <InspectorControls>
           <PanelBody title={ __( 'スタイル設定', THEME_NAME ) }>
-
+            <ServerSideRender
+              block='cocoon-blocks/blank-box-demo-editor'
+              //attributes={ props.attributes }
+            />
             <SelectControl
               label={ __( 'タイプ', THEME_NAME ) }
               value={ style }
@@ -83,23 +78,18 @@ registerBlockType( 'cocoon-blocks/blank-box-demo', {
 
         <div className={attributes.style + BLOCK_CLASS}>
           <span className={'box-block-msg'}>
-            <RichText
-              value={ content }
-              placeholder={ DEFAULT_MSG }
+            <ServerSideRender
+              block='cocoon-blocks/blank-box-demo'
+              attributes={ props.attributes }
             />
           </span>
-          <InnerBlocks />
         </div>
       </Fragment>
     );
   },
 
-  save( { attributes } ) {
-    const { content } = attributes;
-    return (
-      <div className={attributes.style + BLOCK_CLASS}>
-        <InnerBlocks.Content />
-      </div>
-    );
+  save() {
+    // Rendering in PHP
+    return null;
   }
 } );

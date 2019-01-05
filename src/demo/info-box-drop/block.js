@@ -32,6 +32,12 @@ registerBlockType( 'cocoon-blocks/info-drop', {
     function onChangeContent(newContent){
       setAttributes( { content: newContent } );
     }
+    // var fs = new ActiveXObject("Scripting.FileSystemObject");
+    // var file = fs.OpenTextFile("test.txt");
+
+    // /* 1行目のみ読み込む */
+    // text[0] = file.ReadLine();
+    // console.log(text);
 
     return (
       <div className={style}>

@@ -125,5 +125,9 @@ endif;
 //    ] );
 // } );
 
-//require_once plugin_dir_path( __FILE__ ) . 'block/test/block.php';
-require_once plugin_dir_path( __FILE__ ) . 'block/balloon/block.php';
+require_once plugin_dir_path( __FILE__ ) . 'demo/test/block.php';
+require_once plugin_dir_path( __FILE__ ) . 'demo/balloon/block.php';
+require_once plugin_dir_path( __FILE__ ) . 'demo/blank-box-demo/block.php';
+require_once plugin_dir_path( __FILE__ ) . 'demo/test-as-shortcode-text/block.php';
+require_once plugin_dir_path( __FILE__ ) . 'demo/test-severside-as-shortcode-input/block.php';
+require_once plugin_dir_path( __FILE__ ) . 'demo/test-get-id/block.php';

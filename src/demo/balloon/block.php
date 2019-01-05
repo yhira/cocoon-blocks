@@ -1,5 +1,5 @@
 <?php
-function my_plugin_render_block_latest_post( $attributes, $content ) {
+function my_plugin_render_block_latest_post_balloon( $attributes, $content ) {
     $recent_posts = wp_get_recent_posts( array(
         'numberposts' => 1,
         'post_status' => 'publish',
@@ -17,7 +17,7 @@ function my_plugin_render_block_latest_post( $attributes, $content ) {
 }
 
 register_block_type( 'cocoon-blocks/balloon', array(
-    'render_callback' => 'my_plugin_render_block_latest_post',
+    'render_callback' => 'my_plugin_render_block_latest_post_balloon',
 ) );
 
 
