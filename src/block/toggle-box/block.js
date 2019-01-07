@@ -42,7 +42,7 @@ registerBlockType( 'cocoon-blocks/toggle-box', {
       selector: 'div',
       default: DEFAULT_MSG,
     },
-    style: {
+    color: {
       type: 'string',
       default: 'toggle-wrap',
     },
@@ -53,9 +53,9 @@ registerBlockType( 'cocoon-blocks/toggle-box', {
   },
 
   edit( { attributes, setAttributes } ) {
-    const { content, style, dateID } = attributes;
+    const { content, color, dateID } = attributes;
     //dateID = getDateID();
-    setAttributes( { dateID: getDateID() } );
+    (dateID == '') ? setAttributes( { dateID: getDateID() } ) : dateID;
 
     return (
       <Fragment>
@@ -63,28 +63,28 @@ registerBlockType( 'cocoon-blocks/toggle-box', {
           <PanelBody title={ __( 'スタイル設定', THEME_NAME ) }>
 
             <SelectControl
-              label={ __( 'タイプ', THEME_NAME ) }
-              value={ style }
-              onChange={ ( value ) => setAttributes( { style: value } ) }
+              label={ __( '色', THEME_NAME ) }
+              value={ color }
+              onChange={ ( value ) => setAttributes( { color: value } ) }
               options={ [
                 {
-                  value: 'blank-box',
-                  label: __( '灰色', THEME_NAME ),
+                  value: 'toggle-wrap',
+                  label: __( 'デフォルト', THEME_NAME ),
                 },
                 {
-                  value: 'blank-box bb-yellow',
+                  value: 'toggle-wrap tb-yellow',
                   label: __( '黄色', THEME_NAME ),
                 },
                 {
-                  value: 'blank-box bb-red',
+                  value: 'toggle-wrap tb-red',
                   label: __( '赤色', THEME_NAME ),
                 },
                 {
-                  value: 'blank-box bb-blue',
+                  value: 'toggle-wrap tb-blue',
                   label: __( '青色', THEME_NAME ),
                 },
                 {
-                  value: 'blank-box bb-green',
+                  value: 'toggle-wrap tb-green',
                   label: __( '緑色', THEME_NAME ),
                 },
               ] }
@@ -93,7 +93,7 @@ registerBlockType( 'cocoon-blocks/toggle-box', {
           </PanelBody>
         </InspectorControls>
 
-        <div className={attributes.style + BLOCK_CLASS}>
+        <div className={color + BLOCK_CLASS}>
           <input id={"toggle-checkbox-" + dateID} type="checkbox" />
           <label className="toggle-button" for={"toggle-checkbox-" + dateID}>
             <RichText
@@ -110,9 +110,9 @@ registerBlockType( 'cocoon-blocks/toggle-box', {
   },
 
   save( { attributes } ) {
-    const { content, dateID } = attributes;
+    const { content, color, dateID } = attributes;
     return (
-      <div className={attributes.style + BLOCK_CLASS}>
+      <div className={color + BLOCK_CLASS}>
         <input id={"toggle-checkbox-" + dateID} type="checkbox" />
         <label className="toggle-button" for={"toggle-checkbox-" + dateID}>
           <RichText.Content
