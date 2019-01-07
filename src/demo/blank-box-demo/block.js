@@ -15,7 +15,7 @@ const THEME_NAME = 'cocoon';
 const DEFAULT_MSG = __( 'こちらをクリックして設定変更。この入力は公開ページで反映されません。', THEME_NAME );
 const BLOCK_CLASS = ' block-box';
 
-registerBlockType( 'cocoon-blocks/blank-box', {
+registerBlockType( 'cocoon-blocks/blank-box-demo', {
 
   title: __( 'サーバー動作デモボックス', THEME_NAME ),
   icon: 'tablet',

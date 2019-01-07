@@ -12,14 +12,29 @@ const { InnerBlocks, RichText, InspectorControls } = wp.editor;
 const { PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const THEME_NAME = 'cocoon';
-const DEFAULT_MSG = __( 'こちらをクリックして設定変更。この入力は公開ページで反映されません。', THEME_NAME );
+const DEFAULT_MSG = __( 'トグルボックス見出し', THEME_NAME );
 const BLOCK_CLASS = ' block-box';
 
-registerBlockType( 'cocoon-blocks/blank-box', {
+function getDateID(){
+  //Dateオブジェクトを利用
+  var d = new Date();
+  var year  = d.getFullYear();
+  var month = d.getMonth() + 1;
+  var month = ( month          < 10 ) ? '0' + month          : month;
+  var day   = ( d.getDate()    < 10 ) ? '0' + d.getDate()    : d.getDate();
+  var hour  = ( d.getHours()   < 10 ) ? '0' + d.getHours()   : d.getHours();
+  var min   = ( d.getMinutes() < 10 ) ? '0' + d.getMinutes() : d.getMinutes();
+  var sec   = ( d.getSeconds() < 10 ) ? '0' + d.getSeconds() : d.getSeconds();
+  var dateID = '' + year + month + day + hour + min + sec;
+  return dateID;
+}
 
-  title: __( '白抜きボックス', THEME_NAME ),
-  icon: 'tablet',
+registerBlockType( 'cocoon-blocks/toggle-box', {
+
+  title: __( 'トグルボックス', THEME_NAME ),
+  icon: 'randomize',
   category: THEME_NAME + '-block',
+  description: __( 'クリックすることで表示されるコンテンツを追加することができます。', THEME_NAME ),
 
   attributes: {
     content: {
@@ -29,20 +44,18 @@ registerBlockType( 'cocoon-blocks/blank-box', {
     },
     style: {
       type: 'string',
-      default: 'blank-box',
+      default: 'toggle-wrap',
+    },
+    dateID: {
+      type: 'string',
+      default: '',
     },
   },
 
   edit( { attributes, setAttributes } ) {
-    const { content, style, alignment } = attributes;
-
-    function onChange(event){
-      setAttributes({style: event.target.value});
-    }
-
-    function onChangeContent(newContent){
-      setAttributes( { content: newContent } );
-    }
+    const { content, style, dateID } = attributes;
+    //dateID = getDateID();
+    setAttributes( { dateID: getDateID() } );
 
     return (
       <Fragment>
@@ -81,23 +94,34 @@ registerBlockType( 'cocoon-blocks/blank-box', {
         </InspectorControls>
 
         <div className={attributes.style + BLOCK_CLASS}>
-          <span className={'box-block-msg'}>
+          <input id={"toggle-checkbox-" + dateID} type="checkbox" />
+          <label className="toggle-button" for={"toggle-checkbox-" + dateID}>
             <RichText
               value={ content }
               placeholder={ DEFAULT_MSG }
             />
-          </span>
-          <InnerBlocks />
+          </label>
+          <div className="toggle-content">
+            <InnerBlocks />
+          </div>
         </div>
       </Fragment>
     );
   },
 
   save( { attributes } ) {
-    const { content } = attributes;
+    const { content, dateID } = attributes;
     return (
       <div className={attributes.style + BLOCK_CLASS}>
-        <InnerBlocks.Content />
+        <input id={"toggle-checkbox-" + dateID} type="checkbox" />
+        <label className="toggle-button" for={"toggle-checkbox-" + dateID}>
+          <RichText.Content
+            value={ content }
+          />
+        </label>
+        <div className="toggle-content">
+          <InnerBlocks.Content />
+        </div>
       </div>
     );
   }
