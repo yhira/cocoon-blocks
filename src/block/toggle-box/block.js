@@ -5,29 +5,14 @@
  * @license: http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
  */
 
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {THEME_NAME, BLOCK_CLASS, getDateID} from '../../helpers.js';
+
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { InnerBlocks, RichText, InspectorControls } = wp.editor;
 const { PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
-const THEME_NAME = 'cocoon';
 const DEFAULT_MSG = __( 'トグルボックス見出し', THEME_NAME );
-const BLOCK_CLASS = ' block-box';
-
-function getDateID(){
-  //Dateオブジェクトを利用
-  var d = new Date();
-  var year  = d.getFullYear();
-  var month = d.getMonth() + 1;
-  var month = ( month          < 10 ) ? '0' + month          : month;
-  var day   = ( d.getDate()    < 10 ) ? '0' + d.getDate()    : d.getDate();
-  var hour  = ( d.getHours()   < 10 ) ? '0' + d.getHours()   : d.getHours();
-  var min   = ( d.getMinutes() < 10 ) ? '0' + d.getMinutes() : d.getMinutes();
-  var sec   = ( d.getSeconds() < 10 ) ? '0' + d.getSeconds() : d.getSeconds();
-  var dateID = '' + year + month + day + hour + min + sec;
-  return dateID;
-}
 
 registerBlockType( 'cocoon-blocks/toggle-box', {
 
