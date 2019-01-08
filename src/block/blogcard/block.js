@@ -94,7 +94,7 @@ registerBlockType( 'cocoon-blocks/blogcard', {
           </PanelBody>
         </InspectorControls>
 
-        <div className={attributes.style + BLOCK_CLASS}>
+        <div className={attributes.style}>
           <RichText
             onChange={ onChangeContent }
             value={ attributes.content }
@@ -108,9 +108,9 @@ registerBlockType( 'cocoon-blocks/blogcard', {
   save( { attributes } ) {
     const { content } = attributes;
     return (
-      <div className={attributes.style + BLOCK_CLASS}>
+      <div className={attributes.style}>
           {"\n"}<RichText.Content
-            value={ attributes.content.replace(/<\/p><p>/, '</p>\n<p>') }
+            value={ content.replace(/<\/p><p>/, '</p>\n<p>') }
             multiline={"p"}
           />{"\n"}
       </div>
