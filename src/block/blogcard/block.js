@@ -5,12 +5,13 @@
  * @license: http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
  */
 
+import {THEME_NAME, BLOCK_CLASS} from '../../helpers.js';
+
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls } = wp.editor;
 const { PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
-const THEME_NAME = 'cocoon';
 
 registerBlockType( 'cocoon-blocks/blogcard', {
 
@@ -93,7 +94,7 @@ registerBlockType( 'cocoon-blocks/blogcard', {
           </PanelBody>
         </InspectorControls>
 
-        <div className={attributes.style}>
+        <div className={attributes.style + BLOCK_CLASS}>
           <RichText
             onChange={ onChangeContent }
             value={ attributes.content }
@@ -107,7 +108,7 @@ registerBlockType( 'cocoon-blocks/blogcard', {
   save( { attributes } ) {
     const { content } = attributes;
     return (
-      <div className={attributes.style}>
+      <div className={attributes.style + BLOCK_CLASS}>
           {"\n"}<RichText.Content
             value={ attributes.content.replace(/<\/p><p>/, '</p>\n<p>') }
             multiline={"p"}

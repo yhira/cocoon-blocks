@@ -5,14 +5,14 @@
  * @license: http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
  */
 
+import {THEME_NAME, BLOCK_CLASS} from '../../helpers.js';
+
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls } = wp.editor;
 const { PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
-const THEME_NAME = 'cocoon';
 const DEFAULT_MSG = __( 'キーワード', THEME_NAME );
-const BLOCK_CLASS = ' block-box';
 
 registerBlockType( 'cocoon-blocks/search-box', {
 
