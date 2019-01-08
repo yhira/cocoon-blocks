@@ -94,7 +94,7 @@ registerBlockType( 'cocoon-blocks/toggle-box', {
         </InspectorControls>
 
         <div className={color + BLOCK_CLASS}>
-          <input id={"toggle-checkbox-" + dateID} type="checkbox" />
+          <input id={"toggle-checkbox-" + dateID} className="toggle-checkbox" type="checkbox" />
           <label className="toggle-button" for={"toggle-checkbox-" + dateID}>
             <RichText
               value={ content }
@@ -113,7 +113,7 @@ registerBlockType( 'cocoon-blocks/toggle-box', {
     const { content, color, dateID } = attributes;
     return (
       <div className={color + BLOCK_CLASS}>
-        <input id={"toggle-checkbox-" + dateID} type="checkbox" />
+        <input id={"toggle-checkbox-" + dateID} className="toggle-checkbox" type="checkbox" />
         <label className="toggle-button" for={"toggle-checkbox-" + dateID}>
           <RichText.Content
             value={ content }
