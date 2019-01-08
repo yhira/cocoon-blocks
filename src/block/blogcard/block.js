@@ -24,6 +24,7 @@ registerBlockType( 'cocoon-blocks/blogcard', {
       type: 'string',
       source: 'html',
       selector: 'div',
+      default: '',
     },
     style: {
       type: 'string',
@@ -94,10 +95,10 @@ registerBlockType( 'cocoon-blocks/blogcard', {
           </PanelBody>
         </InspectorControls>
 
-        <div className={attributes.style}>
+        <div className={style}>
           <RichText
             onChange={ onChangeContent }
-            value={ attributes.content }
+            value={ content }
             multiline="p"
           />
         </div>
