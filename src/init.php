@@ -15,10 +15,8 @@
  */
 
 
-// // Exit if accessed directly.
-// if ( !defined( 'ABSPATH' ) ) {
-// 	exit;
-// }
+// Exit if accessed directly.
+if ( !defined( 'ABSPATH' ) ) exit;
 
 //個々でフックに対してis_admin()で条件分岐しているのは、このようにしないとwpForoフォーラム画面が真っ白になってしまうため
 //何か不都合がありましたら以下まで。

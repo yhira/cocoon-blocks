@@ -13,13 +13,8 @@
  * @package CGB
  */
 
-// // Exit if accessed directly.
-// var_dump(ABSPATH);
-// var_dump(__DIR__);
-// var_dump(realpath('./'));
-// if ( !defined( 'ABSPATH' )  ) {
-// 	exit;
-// }
+// Exit if accessed directly.
+if ( !defined( 'ABSPATH' ) ) exit;
 
 /**
  * Block Initializer.
