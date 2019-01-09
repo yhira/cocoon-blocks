@@ -42,6 +42,10 @@ registerBlockType( 'cocoon-blocks/toggle-box', {
     //dateID = getDateID();
     (dateID == '') ? setAttributes( { dateID: getDateID() } ) : dateID;
 
+    function onChangeContent(newContent){
+      setAttributes( { content: newContent } );
+    }
+
     return (
       <Fragment>
         <InspectorControls>
@@ -83,6 +87,7 @@ registerBlockType( 'cocoon-blocks/toggle-box', {
           <label className="toggle-button" for={"toggle-checkbox-" + dateID}>
             <RichText
               value={ content }
+              onChange={ onChangeContent }
               placeholder={ DEFAULT_MSG }
             />
           </label>
