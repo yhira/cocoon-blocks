@@ -101,6 +101,11 @@ function add_cocoon_theme_block_categories( $categories, $post ){
         //'icon' => 'heart',
 			),
 			array(
+				'slug' => THEME_NAME.'-micro',
+        'title' => __( 'Cocoonマイクロコピー', THEME_NAME ),
+        //'icon' => 'heart',
+			),
+			array(
 				'slug' => THEME_NAME.'-layout',
         'title' => __( 'Cocoonレイアウト', THEME_NAME ),
         //'icon' => 'heart',

@@ -18,6 +18,8 @@ import './block/button-wrap/block.js';
 import './block/search-box/block.js';
 import './block/toggle-box/block.js';
 
+import './micro/micro-text/block.js';
+
 // import './demo/test/block.js';
 // import './demo/info-box-drop/block.js';
 // import './demo/balloon/block.js';
