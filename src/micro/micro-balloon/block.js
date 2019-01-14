@@ -12,13 +12,13 @@ const { registerBlockType } = wp.blocks;
 const { InnerBlocks, RichText, InspectorControls } = wp.editor;
 const { PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
-const DEFAULT_MSG = __( 'マイクロコピーテキスト', THEME_NAME );
+const DEFAULT_MSG = __( 'マイクロコピーバルーン', THEME_NAME );
 const MICRO_COPY_CLASS = ' micro-copy';
 
-registerBlockType( 'cocoon-blocks/micro-text', {
+registerBlockType( 'cocoon-blocks/micro-balloon', {
 
-  title: __( 'マイクロテキスト', THEME_NAME ),
-  icon: 'editor-textcolor',
+  title: __( 'マイクロバルーン', THEME_NAME ),
+  icon: 'admin-comments',
   category: THEME_NAME + '-micro',
 
   attributes: {
@@ -29,7 +29,7 @@ registerBlockType( 'cocoon-blocks/micro-text', {
     },
     style: {
       type: 'string',
-      default: 'micro-top',
+      default: 'micro-balloon',
     },
   },
   supports: {
@@ -51,11 +51,11 @@ registerBlockType( 'cocoon-blocks/micro-text', {
               onChange={ ( value ) => setAttributes( { style: value } ) }
               options={ [
                 {
-                  value: 'micro-top',
+                  value: 'micro-balloon',
                   label: __( '下寄り', THEME_NAME ),
                 },
                 {
-                  value: 'micro-bottom',
+                  value: 'micro-balloon micro-bottom',
                   label: __( '上寄り', THEME_NAME ),
                 },
               ] }

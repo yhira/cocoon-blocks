@@ -19,6 +19,7 @@ import './block/search-box/block.js';
 import './block/toggle-box/block.js';
 
 import './micro/micro-text/block.js';
+import './micro/micro-balloon/block.js';
 
 // import './demo/test/block.js';
 // import './demo/info-box-drop/block.js';
