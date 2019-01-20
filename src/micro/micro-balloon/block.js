@@ -10,13 +10,13 @@ import {THEME_NAME, BLOCK_CLASS} from '../../helpers.js';
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { InnerBlocks, RichText, InspectorControls } = wp.editor;
-const { PanelBody, SelectControl, BaseControl, ToggleControl, SelectControl } = wp.components;
+const { PanelBody, SelectControl, BaseControl, ToggleControl } = wp.components;
 const { Fragment } = wp.element;
 const DEFAULT_MSG = __( 'マイクロコピーバルーン', THEME_NAME );
 const MICRO_COPY_CLASS = ' micro-copy';
 
 function getCircleClass(isCircle) {
-  return isCircle ? ' cb-circle' : '';
+  return isCircle ? ' mc-circle' : '';
 }
 
 registerBlockType( 'cocoon-blocks/micro-balloon', {
@@ -35,6 +35,10 @@ registerBlockType( 'cocoon-blocks/micro-balloon', {
       type: 'string',
       default: 'micro-balloon',
     },
+    color: {
+      type: 'string',
+      default: '',
+    },
     isCircle: {
       type: 'boolean',
       default: false,
@@ -46,7 +50,7 @@ registerBlockType( 'cocoon-blocks/micro-balloon', {
   },
 
   edit( { attributes, setAttributes } ) {
-    const { content, style, isCircle } = attributes;
+    const { content, style, isCircle, color } = attributes;
     //let circleClass = isCircle ? ' mc-circle' : '';
     return (
       <Fragment>
@@ -68,6 +72,35 @@ registerBlockType( 'cocoon-blocks/micro-balloon', {
                 },
               ] }
             />
+
+            <SelectControl
+              label={ __( 'タイプ', THEME_NAME ) }
+              value={ color }
+              onChange={ ( value ) => setAttributes( { color: value } ) }
+              options={ [
+                {
+                  value: '',
+                  label: __( 'デフォルト', THEME_NAME ),
+                },
+                {
+                  value: ' mc-yellow',
+                  label: __( '黄色', THEME_NAME ),
+                },
+                {
+                  value: ' mc-red',
+                  label: __( '赤色', THEME_NAME ),
+                },
+                {
+                  value: ' mc-blue',
+                  label: __( '青色', THEME_NAME ),
+                },
+                {
+                  value: ' mc-green',
+                  label: __( '緑色', THEME_NAME ),
+                },
+              ] }
+            />
+
             <ToggleControl
               label={ __( '円形にする', THEME_NAME ) }
               checked={ isCircle }
@@ -77,7 +110,7 @@ registerBlockType( 'cocoon-blocks/micro-balloon', {
           </PanelBody>
         </InspectorControls>
 
-        <div className={style + getCircleClass(isCircle) + MICRO_COPY_CLASS + BLOCK_CLASS}>
+        <div className={style + color + getCircleClass(isCircle) + MICRO_COPY_CLASS + BLOCK_CLASS}>
           <RichText
             value={ content }
             onChange={ ( value ) => setAttributes( { content: value } ) }
@@ -88,10 +121,10 @@ registerBlockType( 'cocoon-blocks/micro-balloon', {
   },
 
   save( { attributes } ) {
-    const { content, style, isCircle } = attributes;
+    const { content, style, isCircle, color } = attributes;
     //let circleClass = isCircle ? ' mc-circle' : '';
     return (
-      <div className={style + getCircleClass(isCircle) + MICRO_COPY_CLASS + BLOCK_CLASS}>
+      <div className={style + color + getCircleClass(isCircle) + MICRO_COPY_CLASS + BLOCK_CLASS}>
         <RichText.Content
           value={ content }
         />
