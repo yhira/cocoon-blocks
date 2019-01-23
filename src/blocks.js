@@ -49,6 +49,7 @@ import './toolbutton/marker-under-red.js';
 import './toolbutton/marker-blue.js';
 import './toolbutton/marker-under-blue.js';
 import './toolbutton/strike.js';
+// import './toolbutton/badge.js';
 
 
 
