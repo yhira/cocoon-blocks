@@ -12,11 +12,12 @@ import './block/info-box/block.js';
 import './block/blank-box/block.js';
 import './block/sticky-box/block.js';
 import './block/tab-box/block.js';
+import './block/caption-box/block.js';
 import './block/blogcard/block.js';
 import './block/button/block.js';
 import './block/button-wrap/block.js';
-import './block/search-box/block.js';
 import './block/toggle-box/block.js';
+import './block/search-box/block.js';
 
 import './micro/micro-text/block.js';
 import './micro/micro-balloon/block.js';
