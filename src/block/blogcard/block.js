@@ -18,6 +18,7 @@ registerBlockType( 'cocoon-blocks/blogcard', {
   title: __( 'ブログカード', THEME_NAME ),
   //icon: 'tablet',
   category: THEME_NAME + '-block',
+  description: __( 'ブログカード表示用の入力ブロックを表示します。URLは複数入力可能です。', THEME_NAME ),
 
   attributes: {
     content: {

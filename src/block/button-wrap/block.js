@@ -19,6 +19,7 @@ registerBlockType( 'cocoon-blocks/button-wrap', {
   title: __( '囲みボタン', THEME_NAME ),
   icon: 'embed-generic',
   category: THEME_NAME + '-block',
+  description: __( 'アスリートタグ等のタグを変更できないリンクをボタン化します。', THEME_NAME ),
 
   attributes: {
     content: {

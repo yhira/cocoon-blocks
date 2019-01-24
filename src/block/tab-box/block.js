@@ -19,6 +19,7 @@ registerBlockType( 'cocoon-blocks/tab-box', {
   title: __( 'タブボックス', THEME_NAME ),
   icon: 'category',
   category: THEME_NAME + '-block',
+  description: __( 'タブにメッセージ内容を伝えるための文字が書かれているボックスです。', THEME_NAME ),
 
   attributes: {
     content: {

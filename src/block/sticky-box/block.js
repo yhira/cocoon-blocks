@@ -19,6 +19,7 @@ registerBlockType( 'cocoon-blocks/sticky-box', {
   title: __( '付箋風ボックス', THEME_NAME ),
   icon: 'editor-removeformatting',
   category: THEME_NAME + '-block',
+  description: __( '目立つ濃いめの色で付箋風にメッセージを伝えるためのボックスです。', THEME_NAME ),
 
   attributes: {
     content: {

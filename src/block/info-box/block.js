@@ -19,6 +19,7 @@ registerBlockType( 'cocoon-blocks/info-box', {
   title: __( '案内ボックス', THEME_NAME ),
   icon: 'info',
   category: THEME_NAME + '-block',
+  description: __( 'ボックスの背景色により、直感的にメッセージ内容を伝えるためのボックスです。', THEME_NAME ),
 
   attributes: {
     content: {

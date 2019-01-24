@@ -19,6 +19,7 @@ registerBlockType( 'cocoon-blocks/icon-box', {
   title: __( 'アイコンボックス', THEME_NAME ),
   icon: 'warning',
   category: THEME_NAME + '-block',
+  description: __( 'アイコンを用いて直感的にメッセージ内容を伝えるためのボックスです。', THEME_NAME ),
 
   attributes: {
     content: {

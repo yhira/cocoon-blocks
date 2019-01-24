@@ -19,7 +19,7 @@ registerBlockType( 'cocoon-blocks/toggle-box', {
   title: __( 'トグルボックス', THEME_NAME ),
   icon: 'randomize',
   category: THEME_NAME + '-block',
-  description: __( 'クリックすることで表示されるコンテンツを追加することができます。', THEME_NAME ),
+  description: __( 'クリックすることでコンテンツ内容の表示を切り替えることができるボックスです。', THEME_NAME ),
 
   attributes: {
     content: {

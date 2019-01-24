@@ -19,6 +19,7 @@ registerBlockType( 'cocoon-blocks/blank-box', {
   title: __( '白抜きボックス', THEME_NAME ),
   icon: 'tablet',
   category: THEME_NAME + '-block',
+  description: __( 'コンテンツを囲むだけのブラックボックスを表示します。', THEME_NAME ),
 
   attributes: {
     content: {

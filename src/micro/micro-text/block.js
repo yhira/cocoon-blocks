@@ -14,6 +14,7 @@ const { PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const DEFAULT_MSG = __( 'マイクロコピーテキスト', THEME_NAME );
 const MICRO_COPY_CLASS = ' micro-copy';
+  description: __( 'コンバージョンリンク（ボタン）の直上もしくは直下に小さくテキスト表示して、コンバージョン率アップを図るためのマイクロコピーです。', THEME_NAME ),
 
 registerBlockType( 'cocoon-blocks/micro-text', {
 

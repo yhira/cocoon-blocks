@@ -7,6 +7,7 @@
 
 export const THEME_NAME = 'cocoon';
 export const BLOCK_CLASS = ' block-box';
+export const PARAGRAPH_CLASS = ' paragraph';
 
 //日時をもとにしたID作成
 export function getDateID(){

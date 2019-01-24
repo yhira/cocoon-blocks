@@ -12,6 +12,7 @@ const { registerBlockType } = wp.blocks;
 const { InnerBlocks, RichText, InspectorControls } = wp.editor;
 const { PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
+const CAPTION_BOX_CLASS = 'caption-box';
 const DEFAULT_MSG = __( 'キャプションボックスタイトル', THEME_NAME );
 
 registerBlockType( 'cocoon-blocks/caption-box', {
@@ -19,6 +20,7 @@ registerBlockType( 'cocoon-blocks/caption-box', {
   title: __( 'キャプションボックス', THEME_NAME ),
   icon: 'feedback',
   category: THEME_NAME + '-block',
+  description: __( 'ボックス自体に自由な見出しを入力できる汎用ボックスです。', THEME_NAME ),
 
   attributes: {
     content: {
@@ -71,7 +73,7 @@ registerBlockType( 'cocoon-blocks/caption-box', {
           </PanelBody>
         </InspectorControls>
 
-        <div className={'caption-box' + color + BLOCK_CLASS}>
+        <div className={CAPTION_BOX_CLASS + color + BLOCK_CLASS}>
           <div class="caption-box-title">
             <RichText
               value={ content }
@@ -89,7 +91,7 @@ registerBlockType( 'cocoon-blocks/caption-box', {
   save( { attributes } ) {
     const { content, color } = attributes;
     return (
-      <div className={'caption-box' + color + BLOCK_CLASS}>
+      <div className={CAPTION_BOX_CLASS + color + BLOCK_CLASS}>
         <div class="caption-box-title">
           <RichText.Content
             value={ content }

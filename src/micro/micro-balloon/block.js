@@ -24,6 +24,7 @@ registerBlockType( 'cocoon-blocks/micro-balloon', {
   title: __( 'マイクロバルーン', THEME_NAME ),
   icon: 'admin-comments',
   category: THEME_NAME + '-micro',
+  description: __( 'コンバージョンリンク（ボタン）の直上もしくは直下にテキストバルーン表示して、コンバージョン率アップを図るためのマイクロコピーです。', THEME_NAME ),
 
   attributes: {
     content: {
