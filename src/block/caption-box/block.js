@@ -13,11 +13,11 @@ const { InnerBlocks, RichText, InspectorControls } = wp.editor;
 const { PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const CAPTION_BOX_CLASS = 'caption-box';
-const DEFAULT_MSG = __( 'キャプションボックスタイトル', THEME_NAME );
+const DEFAULT_MSG = __( '見出し', THEME_NAME );
 
 registerBlockType( 'cocoon-blocks/caption-box', {
 
-  title: __( 'キャプションボックス', THEME_NAME ),
+  title: __( '見出しボックス', THEME_NAME ),
   icon: 'feedback',
   category: THEME_NAME + '-block',
   description: __( 'ボックス自体に自由な見出しを入力できる汎用ボックスです。', THEME_NAME ),
