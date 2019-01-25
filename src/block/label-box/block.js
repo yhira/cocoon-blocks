@@ -12,15 +12,15 @@ const { registerBlockType } = wp.blocks;
 const { InnerBlocks, RichText, InspectorControls } = wp.editor;
 const { PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
-const CAPTION_BOX_CLASS = 'caption-box';
+const CAPTION_BOX_CLASS = 'label-box';
 const DEFAULT_MSG = __( '見出し', THEME_NAME );
 
-registerBlockType( 'cocoon-blocks/caption-box', {
+registerBlockType( 'cocoon-blocks/label-box', {
 
-  title: __( '見出しボックス', THEME_NAME ),
-  icon: 'feedback',
+  title: __( 'ラベルボックス', THEME_NAME ),
+  icon: 'tag',
   category: THEME_NAME + '-block',
-  description: __( 'ボックス「見出し」を入力できる汎用ボックスです。', THEME_NAME ),
+  description: __( 'ボックスに「ラベル見出し」入力できる汎用ボックスです。', THEME_NAME ),
 
   attributes: {
     content: {
@@ -52,19 +52,19 @@ registerBlockType( 'cocoon-blocks/caption-box', {
                   label: __( '灰色', THEME_NAME ),
                 },
                 {
-                  value: ' cb-yellow',
+                  value: ' lb-yellow',
                   label: __( '黄色', THEME_NAME ),
                 },
                 {
-                  value: ' cb-red',
+                  value: ' lb-red',
                   label: __( '赤色', THEME_NAME ),
                 },
                 {
-                  value: ' cb-blue',
+                  value: ' lb-blue',
                   label: __( '青色', THEME_NAME ),
                 },
                 {
-                  value: ' cb-green',
+                  value: ' lb-green',
                   label: __( '緑色', THEME_NAME ),
                 },
               ] }
@@ -74,13 +74,13 @@ registerBlockType( 'cocoon-blocks/caption-box', {
         </InspectorControls>
 
         <div className={CAPTION_BOX_CLASS + color + BLOCK_CLASS}>
-          <div class="caption-box-label">
+          <div class="label-box-label">
             <RichText
               value={ content }
               placeholder={ DEFAULT_MSG }
             />
           </div>
-          <div class="caption-box-content">
+          <div class="label-box-content">
             <InnerBlocks />
           </div>
         </div>
@@ -92,12 +92,12 @@ registerBlockType( 'cocoon-blocks/caption-box', {
     const { content, color } = attributes;
     return (
       <div className={CAPTION_BOX_CLASS + color + BLOCK_CLASS}>
-        <div class="caption-box-label">
+        <div class="label-box-label">
           <RichText.Content
             value={ content }
           />
         </div>
-        <div class="caption-box-content">
+        <div class="label-box-content">
           <InnerBlocks.Content />
         </div>
       </div>

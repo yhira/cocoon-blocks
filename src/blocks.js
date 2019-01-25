@@ -14,6 +14,7 @@ import './block/sticky-box/block.js';
 import './block/tab-box/block.js';
 import './block/caption-box/block.js';
 import './block/caption-tab-box/block.js';
+import './block/label-box/block.js';
 import './block/blogcard/block.js';
 import './block/button/block.js';
 import './block/button-wrap/block.js';
