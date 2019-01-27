@@ -5,15 +5,19 @@
  * @license: http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
  */
 
-import {THEME_NAME, BLOCK_CLASS} from '../../helpers.js';
+import {THEME_NAME, BLOCK_CLASS, ICONS} from '../../helpers.js';
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+const { times } = lodash;
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { InnerBlocks, RichText, InspectorControls } = wp.editor;
-const { PanelBody, SelectControl, BaseControl } = wp.components;
+const { PanelBody, SelectControl, BaseControl, Button } = wp.components;
 const { Fragment } = wp.element;
 const CAPTION_BOX_CLASS = 'caption-box';
 const DEFAULT_MSG = __( '見出し', THEME_NAME );
+
+let isIconUpdated = false;
 
 registerBlockType( 'cocoon-blocks/caption-box', {
 
@@ -32,10 +36,14 @@ registerBlockType( 'cocoon-blocks/caption-box', {
       type: 'string',
       default: '',
     },
+    icon: {
+      type: 'string',
+      default: '',
+    },
   },
 
   edit( { attributes, setAttributes } ) {
-    const { content, color } = attributes;
+    const { content, color, icon } = attributes;
 
     return (
       <Fragment>
@@ -70,6 +78,25 @@ registerBlockType( 'cocoon-blocks/caption-box', {
               ] }
             />
 
+            <BaseControl label={ __( 'アイコン', THEME_NAME ) }>
+              <div className="icon-selector">
+                { times( ICONS.length, ( index ) => {
+                  return (
+                    <Button
+                      isDefault
+                      isPrimary={ icon === ICONS[index].value }
+                      onClick={ () => {
+                        isIconUpdated = true;
+                        setAttributes( { icon: ICONS[index].value } );
+                      } }
+                    >
+                      <i className={ `fa fa-${ ICONS[index].value }` } title={ ICONS[ index ].label } />
+                    </Button>
+                  );
+                } ) }
+              </div>
+            </BaseControl>
+
           </PanelBody>
         </InspectorControls>
 
@@ -89,7 +116,7 @@ registerBlockType( 'cocoon-blocks/caption-box', {
   },
 
   save( { attributes } ) {
-    const { content, color } = attributes;
+    const { content, color, icon } = attributes;
     return (
       <div className={CAPTION_BOX_CLASS + color + BLOCK_CLASS}>
         <div className="caption-box-label">

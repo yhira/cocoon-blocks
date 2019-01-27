@@ -5,6 +5,8 @@
  * @license: http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
  */
 
+const { __ } = wp.i18n;
+
 export const THEME_NAME = 'cocoon';
 export const BLOCK_CLASS = ' block-box';
 export const PARAGRAPH_CLASS = ' paragraph';
@@ -23,3 +25,62 @@ export function getDateID(){
   var dateID = '' + year + month + day + hour + min + sec;
   return dateID;
 }
+
+export const ICONS = [
+  {
+    value: 'info-circle',
+    label: __( 'info-circle', THEME_NAME ),
+  },
+  {
+    value: 'question-circle',
+    label: __( 'question-circle', THEME_NAME ),
+  },
+  {
+    value: 'exclamation-circle',
+    label: __( 'exclamation-circle', THEME_NAME ),
+  },
+  {
+    value: 'edit',
+    label: __( 'edit', THEME_NAME ),
+  },
+  {
+    value: 'comment',
+    label: __( 'comment', THEME_NAME ),
+  },
+  {
+    value: 'thumbs-up',
+    label: __( 'thumbs-up', THEME_NAME ),
+  },
+  {
+    value: 'thumbs-down',
+    label: __( 'thumbs-down', THEME_NAME ),
+  },
+  {
+    value: 'check',
+    label: __( 'check', THEME_NAME ),
+  },
+  {
+    value: 'bell',
+    label: __( 'bell', THEME_NAME ),
+  },
+  {
+    value: 'star',
+    label: __( 'star', THEME_NAME ),
+  },
+  {
+    value: 'bookmark',
+    label: __( 'bookmark', THEME_NAME ),
+  },
+  {
+    value: 'download',
+    label: __( 'download', THEME_NAME ),
+  },
+  {
+    value: 'coffee',
+    label: __( 'coffee', THEME_NAME ),
+  },
+  {
+    value: 'user',
+    label: __( 'user', THEME_NAME ),
+  },
+];
