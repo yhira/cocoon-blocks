@@ -49,7 +49,7 @@ registerBlockType( 'cocoon-blocks/caption-tab-box', {
               options={ [
                 {
                   value: '',
-                  label: __( '灰色', THEME_NAME ),
+                  label: __( 'デフォルト', THEME_NAME ),
                 },
                 {
                   value: ' ctb-yellow',
@@ -74,13 +74,13 @@ registerBlockType( 'cocoon-blocks/caption-tab-box', {
         </InspectorControls>
 
         <div className={CAPTION_BOX_CLASS + color + BLOCK_CLASS}>
-          <div class="caption-tab-box-label">
+          <div className="caption-tab-box-label">
             <RichText
               value={ content }
               placeholder={ DEFAULT_MSG }
             />
           </div>
-          <div class="caption-tab-box-content">
+          <div className="caption-tab-box-content">
             <InnerBlocks />
           </div>
         </div>
@@ -92,12 +92,12 @@ registerBlockType( 'cocoon-blocks/caption-tab-box', {
     const { content, color } = attributes;
     return (
       <div className={CAPTION_BOX_CLASS + color + BLOCK_CLASS}>
-        <div class="caption-tab-box-label">
+        <div className="caption-tab-box-label">
           <RichText.Content
             value={ content }
           />
         </div>
-        <div class="caption-tab-box-content">
+        <div className="caption-tab-box-content">
           <InnerBlocks.Content />
         </div>
       </div>

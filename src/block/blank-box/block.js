@@ -56,7 +56,7 @@ registerBlockType( 'cocoon-blocks/blank-box', {
               options={ [
                 {
                   value: 'blank-box',
-                  label: __( '灰色', THEME_NAME ),
+                  label: __( 'デフォルト', THEME_NAME ),
                 },
                 {
                   value: 'blank-box bb-yellow',

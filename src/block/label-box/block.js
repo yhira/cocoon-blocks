@@ -49,7 +49,7 @@ registerBlockType( 'cocoon-blocks/label-box', {
               options={ [
                 {
                   value: '',
-                  label: __( '灰色', THEME_NAME ),
+                  label: __( 'デフォルト', THEME_NAME ),
                 },
                 {
                   value: ' lb-yellow',
@@ -74,13 +74,13 @@ registerBlockType( 'cocoon-blocks/label-box', {
         </InspectorControls>
 
         <div className={CAPTION_BOX_CLASS + color + BLOCK_CLASS}>
-          <div class="label-box-label">
+          <div className="label-box-label">
             <RichText
               value={ content }
               placeholder={ DEFAULT_MSG }
             />
           </div>
-          <div class="label-box-content">
+          <div className="label-box-content">
             <InnerBlocks />
           </div>
         </div>
@@ -92,12 +92,12 @@ registerBlockType( 'cocoon-blocks/label-box', {
     const { content, color } = attributes;
     return (
       <div className={CAPTION_BOX_CLASS + color + BLOCK_CLASS}>
-        <div class="label-box-label">
+        <div className="label-box-label">
           <RichText.Content
             value={ content }
           />
         </div>
-        <div class="label-box-content">
+        <div className="label-box-content">
           <InnerBlocks.Content />
         </div>
       </div>
