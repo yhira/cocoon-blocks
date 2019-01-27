@@ -79,18 +79,18 @@ registerBlockType( 'cocoon-blocks/caption-box', {
             />
 
             <BaseControl label={ __( 'アイコン', THEME_NAME ) }>
-              <div className="icon-selector">
+              <div className="icon-setting-buttons">
                 { times( ICONS.length, ( index ) => {
                   return (
                     <Button
                       isDefault
                       isPrimary={ icon === ICONS[index].value }
+                      className={ICONS[index].value}
                       onClick={ () => {
                         isIconUpdated = true;
                         setAttributes( { icon: ICONS[index].value } );
                       } }
                     >
-                      <i className={ `fa fa-${ ICONS[index].value }` } title={ ICONS[ index ].label } />
                     </Button>
                   );
                 } ) }
