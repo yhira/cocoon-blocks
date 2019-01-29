@@ -6,7 +6,6 @@
  */
 
 import {THEME_NAME, BLOCK_CLASS, ICONS, getIconClass} from '../../helpers.js';
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const { times } = lodash;
 const { __ } = wp.i18n;
@@ -102,11 +101,13 @@ registerBlockType( 'cocoon-blocks/caption-box', {
         </InspectorControls>
 
         <div className={CAPTION_BOX_CLASS + color + BLOCK_CLASS}>
-          <div className={'caption-box-label' + getIconClass(icon)}>
-            <RichText
-              value={ content }
-              placeholder={ DEFAULT_MSG }
-            />
+          <div className={'caption-box-label block-box-label' + getIconClass(icon)}>
+            <span className={'caption-box-label-text block-box-label-text'}>
+              <RichText
+                value={ content }
+                placeholder={ DEFAULT_MSG }
+              />
+            </span>
           </div>
           <div className="caption-box-content">
             <InnerBlocks />
@@ -120,10 +121,12 @@ registerBlockType( 'cocoon-blocks/caption-box', {
     const { content, color, icon } = attributes;
     return (
       <div className={CAPTION_BOX_CLASS + color + BLOCK_CLASS}>
-        <div className={'caption-box-label' + getIconClass(icon)}>
-          <RichText.Content
-            value={ content }
-          />
+        <div className={'caption-box-label block-box-label' + getIconClass(icon)}>
+          <span className={'caption-box-label-text block-box-label-text'}>
+            <RichText.Content
+              value={ content }
+            />
+          </span>
         </div>
         <div className="caption-box-content">
           <InnerBlocks.Content />

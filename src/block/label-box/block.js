@@ -74,7 +74,7 @@ registerBlockType( 'cocoon-blocks/label-box', {
         </InspectorControls>
 
         <div className={CAPTION_BOX_CLASS + color + BLOCK_CLASS}>
-          <div className="label-box-label">
+          <div className="label-box-label block-box-label">
             <RichText
               value={ content }
               placeholder={ DEFAULT_MSG }
@@ -92,7 +92,7 @@ registerBlockType( 'cocoon-blocks/label-box', {
     const { content, color } = attributes;
     return (
       <div className={CAPTION_BOX_CLASS + color + BLOCK_CLASS}>
-        <div className="label-box-label">
+        <div className="label-box-label block-box-label">
           <RichText.Content
             value={ content }
           />
