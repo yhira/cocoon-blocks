@@ -5,7 +5,7 @@
  * @license: http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
  */
 
-import {THEME_NAME, BLOCK_CLASS, ICONS} from '../../helpers.js';
+import {THEME_NAME, BLOCK_CLASS, ICONS, getIconClass} from '../../helpers.js';
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const { times } = lodash;
@@ -44,6 +44,7 @@ registerBlockType( 'cocoon-blocks/caption-box', {
 
   edit( { attributes, setAttributes } ) {
     const { content, color, icon } = attributes;
+    //let iconClass = getIconClass(icon);
 
     return (
       <Fragment>
@@ -101,7 +102,7 @@ registerBlockType( 'cocoon-blocks/caption-box', {
         </InspectorControls>
 
         <div className={CAPTION_BOX_CLASS + color + BLOCK_CLASS}>
-          <div className="caption-box-label">
+          <div className={'caption-box-label' + getIconClass(icon)}>
             <RichText
               value={ content }
               placeholder={ DEFAULT_MSG }
@@ -119,7 +120,7 @@ registerBlockType( 'cocoon-blocks/caption-box', {
     const { content, color, icon } = attributes;
     return (
       <div className={CAPTION_BOX_CLASS + color + BLOCK_CLASS}>
-        <div className="caption-box-label">
+        <div className={'caption-box-label' + getIconClass(icon)}>
           <RichText.Content
             value={ content }
           />

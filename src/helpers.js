@@ -26,6 +26,11 @@ export function getDateID(){
   return dateID;
 }
 
+//アイコンクラス文字列を取得
+export function getIconClass(icon){
+  return icon ? (' ' + icon) : '';
+}
+
 export const ICONS = [
   {
     value: 'fab-info-circle',
