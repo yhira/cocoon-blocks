@@ -5,15 +5,18 @@
  * @license: http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
  */
 
-import {THEME_NAME, BLOCK_CLASS} from '../../helpers.js';
+import {THEME_NAME, BLOCK_CLASS, ICONS, getIconClass} from '../../helpers.js';
 
+const { times } = lodash;
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { InnerBlocks, RichText, InspectorControls } = wp.editor;
-const { PanelBody, SelectControl, BaseControl } = wp.components;
+const { PanelBody, SelectControl, BaseControl, Button } = wp.components;
 const { Fragment } = wp.element;
 const CAPTION_BOX_CLASS = 'caption-tab-box';
 const DEFAULT_MSG = __( '見出し', THEME_NAME );
+
+let isIconUpdated = false;
 
 registerBlockType( 'cocoon-blocks/caption-tab-box', {
 
@@ -32,10 +35,14 @@ registerBlockType( 'cocoon-blocks/caption-tab-box', {
       type: 'string',
       default: '',
     },
+    icon: {
+      type: 'string',
+      default: '',
+    },
   },
 
   edit( { attributes, setAttributes } ) {
-    const { content, color } = attributes;
+    const { content, color, icon } = attributes;
 
     return (
       <Fragment>
@@ -70,14 +77,34 @@ registerBlockType( 'cocoon-blocks/caption-tab-box', {
               ] }
             />
 
+            <BaseControl label={ __( 'アイコン', THEME_NAME ) }>
+              <div className="icon-setting-buttons">
+                { times( ICONS.length, ( index ) => {
+                  return (
+                    <Button
+                      isDefault
+                      isPrimary={ icon === ICONS[index].value }
+                      className={ICONS[index].label}
+                      onClick={ () => {
+                        isIconUpdated = true;
+                        setAttributes( { icon: ICONS[index].value } );
+                      } }
+                    >
+                    </Button>
+                  );
+                } ) }
+              </div>
+            </BaseControl>
+
           </PanelBody>
         </InspectorControls>
 
         <div className={CAPTION_BOX_CLASS + color + BLOCK_CLASS}>
-          <div className="caption-tab-box-label block-box-label">
+          <div className={'caption-tab-box-label block-box-label' + getIconClass(icon)}>
             <span className={'caption-tab-box-label-text block-box-label-text'}>
               <RichText
                 value={ content }
+                onChange={ ( value ) => setAttributes( { content: value } ) }
                 placeholder={ DEFAULT_MSG }
               />
             </span>
@@ -91,10 +118,10 @@ registerBlockType( 'cocoon-blocks/caption-tab-box', {
   },
 
   save( { attributes } ) {
-    const { content, color } = attributes;
+    const { content, color, icon } = attributes;
     return (
       <div className={CAPTION_BOX_CLASS + color + BLOCK_CLASS}>
-        <div className="caption-tab-box-label block-box-label">
+        <div className={'caption-tab-box-label block-box-label' + getIconClass(icon)}>
           <span className={'caption-tab-box-label-text block-box-label-text'}>
             <RichText.Content
               value={ content }

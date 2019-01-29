@@ -43,7 +43,6 @@ registerBlockType( 'cocoon-blocks/caption-box', {
 
   edit( { attributes, setAttributes } ) {
     const { content, color, icon } = attributes;
-    //let iconClass = getIconClass(icon);
 
     return (
       <Fragment>
@@ -85,7 +84,7 @@ registerBlockType( 'cocoon-blocks/caption-box', {
                     <Button
                       isDefault
                       isPrimary={ icon === ICONS[index].value }
-                      className={ICONS[index].value}
+                      className={ICONS[index].label}
                       onClick={ () => {
                         isIconUpdated = true;
                         setAttributes( { icon: ICONS[index].value } );
@@ -105,6 +104,7 @@ registerBlockType( 'cocoon-blocks/caption-box', {
             <span className={'caption-box-label-text block-box-label-text'}>
               <RichText
                 value={ content }
+                onChange={ ( value ) => setAttributes( { content: value } ) }
                 placeholder={ DEFAULT_MSG }
               />
             </span>

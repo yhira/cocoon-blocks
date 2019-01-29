@@ -33,6 +33,10 @@ export function getIconClass(icon){
 
 export const ICONS = [
   {
+    value: 'fab-none',
+    label: 'fab-none',
+  },
+  {
     value: 'fab-info-circle',
     label: __( 'fab-info-circle', THEME_NAME ),
   },
