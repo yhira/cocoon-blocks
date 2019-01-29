@@ -75,10 +75,12 @@ registerBlockType( 'cocoon-blocks/label-box', {
 
         <div className={CAPTION_BOX_CLASS + color + BLOCK_CLASS}>
           <div className="label-box-label block-box-label">
-            <RichText
-              value={ content }
-              placeholder={ DEFAULT_MSG }
-            />
+            <span className={'label-box-label-text block-box-label-text'}>
+              <RichText
+                value={ content }
+                placeholder={ DEFAULT_MSG }
+              />
+            </span>
           </div>
           <div className="label-box-content">
             <InnerBlocks />
@@ -93,9 +95,11 @@ registerBlockType( 'cocoon-blocks/label-box', {
     return (
       <div className={CAPTION_BOX_CLASS + color + BLOCK_CLASS}>
         <div className="label-box-label block-box-label">
-          <RichText.Content
-            value={ content }
-          />
+          <span className={'label-box-label-text block-box-label-text'}>
+            <RichText.Content
+              value={ content }
+            />
+          </span>
         </div>
         <div className="label-box-content">
           <InnerBlocks.Content />
