@@ -33,7 +33,7 @@ export function getIconClass(icon){
 
 export const ICONS = [
   {
-    value: 'fab-none',
+    value: '',
     label: 'fab-none',
   },
   {

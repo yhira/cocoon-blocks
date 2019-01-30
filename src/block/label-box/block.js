@@ -16,8 +16,6 @@ const { Fragment } = wp.element;
 const CAPTION_BOX_CLASS = 'label-box';
 const DEFAULT_MSG = __( '見出し', THEME_NAME );
 
-let isIconUpdated = false;
-
 registerBlockType( 'cocoon-blocks/label-box', {
 
   title: __( 'ラベルボックス', THEME_NAME ),
@@ -86,7 +84,6 @@ registerBlockType( 'cocoon-blocks/label-box', {
                       isPrimary={ icon === ICONS[index].value }
                       className={ICONS[index].label}
                       onClick={ () => {
-                        isIconUpdated = true;
                         setAttributes( { icon: ICONS[index].value } );
                       } }
                     >
