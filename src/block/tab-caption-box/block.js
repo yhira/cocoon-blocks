@@ -13,12 +13,12 @@ const { registerBlockType } = wp.blocks;
 const { InnerBlocks, RichText, InspectorControls } = wp.editor;
 const { PanelBody, SelectControl, BaseControl, Button } = wp.components;
 const { Fragment } = wp.element;
-const CAPTION_BOX_CLASS = 'caption-tab-box';
+const CAPTION_BOX_CLASS = 'tab-caption-box';
 const DEFAULT_MSG = __( '見出し', THEME_NAME );
 
-registerBlockType( 'cocoon-blocks/caption-tab-box', {
+registerBlockType( 'cocoon-blocks/tab-caption-box', {
 
-  title: __( '見出しタブボックス', THEME_NAME ),
+  title: __( 'タブ見出しボックス', THEME_NAME ),
   icon: 'category',
   category: THEME_NAME + '-block',
   description: __( 'ボックスに「タブ見出し」を入力できる汎用ボックスです。', THEME_NAME ),
@@ -57,19 +57,19 @@ registerBlockType( 'cocoon-blocks/caption-tab-box', {
                   label: __( 'デフォルト', THEME_NAME ),
                 },
                 {
-                  value: ' ctb-yellow',
+                  value: ' tcb-yellow',
                   label: __( '黄色', THEME_NAME ),
                 },
                 {
-                  value: ' ctb-red',
+                  value: ' tcb-red',
                   label: __( '赤色', THEME_NAME ),
                 },
                 {
-                  value: ' ctb-blue',
+                  value: ' tcb-blue',
                   label: __( '青色', THEME_NAME ),
                 },
                 {
-                  value: ' ctb-green',
+                  value: ' tcb-green',
                   label: __( '緑色', THEME_NAME ),
                 },
               ] }
@@ -97,8 +97,8 @@ registerBlockType( 'cocoon-blocks/caption-tab-box', {
         </InspectorControls>
 
         <div className={CAPTION_BOX_CLASS + color + BLOCK_CLASS}>
-          <div className={'caption-tab-box-label block-box-label' + getIconClass(icon)}>
-            <span className={'caption-tab-box-label-text block-box-label-text'}>
+          <div className={'tab-caption-box-label block-box-label' + getIconClass(icon)}>
+            <span className={'tab-caption-box-label-text block-box-label-text'}>
               <RichText
                 value={ content }
                 onChange={ ( value ) => setAttributes( { content: value } ) }
@@ -106,7 +106,7 @@ registerBlockType( 'cocoon-blocks/caption-tab-box', {
               />
             </span>
           </div>
-          <div className="caption-tab-box-content">
+          <div className="tab-caption-box-content">
             <InnerBlocks />
           </div>
         </div>
@@ -118,14 +118,14 @@ registerBlockType( 'cocoon-blocks/caption-tab-box', {
     const { content, color, icon } = attributes;
     return (
       <div className={CAPTION_BOX_CLASS + color + BLOCK_CLASS}>
-        <div className={'caption-tab-box-label block-box-label' + getIconClass(icon)}>
-          <span className={'caption-tab-box-label-text block-box-label-text'}>
+        <div className={'tab-caption-box-label block-box-label' + getIconClass(icon)}>
+          <span className={'tab-caption-box-label-text block-box-label-text'}>
             <RichText.Content
               value={ content }
             />
           </span>
         </div>
-        <div className="caption-tab-box-content">
+        <div className="tab-caption-box-content">
           <InnerBlocks.Content />
         </div>
       </div>
