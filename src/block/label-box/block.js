@@ -20,7 +20,7 @@ registerBlockType( 'cocoon-blocks/label-box', {
 
   title: __( 'ラベルボックス', THEME_NAME ),
   icon: 'tag',
-  category: THEME_NAME + '-block',
+  category: THEME_NAME + '-universal-block',
   description: __( 'ボックスに「ラベル見出し」入力できる汎用ボックスです。', THEME_NAME ),
 
   attributes: {

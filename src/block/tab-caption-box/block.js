@@ -20,7 +20,7 @@ registerBlockType( 'cocoon-blocks/tab-caption-box', {
 
   title: __( 'タブ見出しボックス', THEME_NAME ),
   icon: 'category',
-  category: THEME_NAME + '-block',
+  category: THEME_NAME + '-universal-block',
   description: __( 'ボックスに「タブ見出し」を入力できる汎用ボックスです。', THEME_NAME ),
 
   attributes: {

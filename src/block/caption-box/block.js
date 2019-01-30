@@ -20,7 +20,7 @@ registerBlockType( 'cocoon-blocks/caption-box', {
 
   title: __( '見出しボックス', THEME_NAME ),
   icon: 'feedback',
-  category: THEME_NAME + '-block',
+  category: THEME_NAME + '-universal-block',
   description: __( 'ボックス「見出し」を入力できる汎用ボックスです。', THEME_NAME ),
 
   attributes: {
